@@ -475,12 +475,19 @@ function Footer() {
             <h3 className="text-sm font-bold uppercase tracking-widest text-zinc-50 mb-4">
               Endereço
             </h3>
-            <p className="flex items-start gap-2 text-sm text-zinc-400">
+            <a
+              href={MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start gap-2 text-sm text-zinc-400 hover:text-orange-500 transition-colors"
+            >
               <MapPin className="h-4 w-4 text-orange-500 shrink-0 mt-0.5" />
-              Av. Padre Natal Pigato, 1932
-              <br />
-              Campo Largo/PR
-            </p>
+              <span>
+                Av. Padre Natal Pigato, 1932
+                <br />
+                Campo Largo/PR
+              </span>
+            </a>
           </div>
           <div>
             <h3 className="text-sm font-bold uppercase tracking-widest text-zinc-50 mb-4">
