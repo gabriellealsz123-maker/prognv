@@ -135,7 +135,7 @@ function Hero() {
   return (
     <section
       id="inicio"
-      className="relative overflow-hidden bg-gradient-to-b from-zinc-900 via-zinc-925 to-zinc-950 pt-32 pb-20"
+      className="relative overflow-hidden pt-32 pb-20"
       style={{
         backgroundImage:
           "repeating-linear-gradient(115deg, rgba(255,255,255,0.015) 0 2px, transparent 2px 6px), linear-gradient(to bottom, var(--color-zinc-900), var(--color-zinc-950))",
