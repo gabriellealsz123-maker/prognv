@@ -28,6 +28,9 @@ import { useEffect, useState } from "react";
 
 const WHATSAPP_URL =
   "https://wa.me/554188905279?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20GNV.";
+const TEL_FIXO_URL = "tel:+554133934019";
+const MAPS_URL =
+  "https://www.google.com/maps/search/?api=1&query=Av.%20Padre%20Natal%20Pigato%2C%201932%20-%20Campo%20Largo%2C%20PR";
 
 export const Route = createFileRoute("/")({
   head: () => ({
