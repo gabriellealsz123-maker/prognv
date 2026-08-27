@@ -505,9 +505,14 @@ function Footer() {
                   WhatsApp (41) 8890-5279
                 </a>
               </li>
-              <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-orange-500" />
-                Fixo (41) 3393-4019
+              <li>
+                <a
+                  href={TEL_FIXO_URL}
+                  className="flex items-center gap-2 hover:text-orange-500 transition-colors"
+                >
+                  <Phone className="h-4 w-4 text-orange-500" />
+                  Fixo (41) 3393-4019
+                </a>
               </li>
               <li>
                 <a
