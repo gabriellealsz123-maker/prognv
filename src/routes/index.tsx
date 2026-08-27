@@ -147,10 +147,7 @@ function Hero() {
           Oficina homologada Inmetro
         </p>
         <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-zinc-50 leading-[1.05]">
-          Economia e Potência.
-          <br />
-          Reduza seu IPVA para{" "}
-          <span className="text-orange-500">1%</span>.
+          PRO&nbsp;GNV
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg text-zinc-400">
           Instalação e manutenção de GNV com oficina homologada pelo Inmetro e
@@ -285,9 +282,9 @@ function PricingKits() {
             price="R$ 3.190,00"
             installments="10x R$ 367,00 s/ juros"
             features={[
-              "Cilindro 15m³",
+              "Cilindro Xm³",
               "Suporte específico",
-              "1 Ano de Garantia (Peças)",
+              "X tempo de Garantia ",
             ]}
           />
           <KitCard
@@ -298,9 +295,9 @@ function PricingKits() {
             installments="10x R$ 460,00 s/ juros"
             features={[
               "Tecnologia Italiana",
-              "Cilindro 15m³",
-              "2 Anos Garantia Manutenção",
-              "5 Anos Garantia Cilindro",
+              "Cilindro Xm³",
+              " x tempo Garantia Manutenção",
+              "x tempo de Garantia Cilindro",
             ]}
           />
         </div>
