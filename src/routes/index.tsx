@@ -28,6 +28,9 @@ import { useEffect, useState } from "react";
 
 const WHATSAPP_URL =
   "https://wa.me/554188905279?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20GNV.";
+const TEL_FIXO_URL = "tel:+554133934019";
+const MAPS_URL =
+  "https://www.google.com/maps/search/?api=1&query=Av.%20Padre%20Natal%20Pigato%2C%201932%20-%20Campo%20Largo%2C%20PR";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -472,12 +475,19 @@ function Footer() {
             <h3 className="text-sm font-bold uppercase tracking-widest text-zinc-50 mb-4">
               Endereço
             </h3>
-            <p className="flex items-start gap-2 text-sm text-zinc-400">
+            <a
+              href={MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start gap-2 text-sm text-zinc-400 hover:text-orange-500 transition-colors"
+            >
               <MapPin className="h-4 w-4 text-orange-500 shrink-0 mt-0.5" />
-              Av. Padre Natal Pigato, 1932
-              <br />
-              Campo Largo/PR
-            </p>
+              <span>
+                Av. Padre Natal Pigato, 1932
+                <br />
+                Campo Largo/PR
+              </span>
+            </a>
           </div>
           <div>
             <h3 className="text-sm font-bold uppercase tracking-widest text-zinc-50 mb-4">
@@ -495,9 +505,14 @@ function Footer() {
                   WhatsApp (41) 8890-5279
                 </a>
               </li>
-              <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-orange-500" />
-                Fixo (41) 3393-4019
+              <li>
+                <a
+                  href={TEL_FIXO_URL}
+                  className="flex items-center gap-2 hover:text-orange-500 transition-colors"
+                >
+                  <Phone className="h-4 w-4 text-orange-500" />
+                  Fixo (41) 3393-4019
+                </a>
               </li>
               <li>
                 <a
