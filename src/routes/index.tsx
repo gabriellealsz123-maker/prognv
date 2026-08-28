@@ -150,11 +150,10 @@ function Hero() {
           Oficina homologada Inmetro
         </p>
         <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-zinc-50 leading-[1.05]">
-          PRO&nbsp;GNV
+          PRO GNV
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg text-zinc-400">
-          Instalação e manutenção de GNV com oficina homologada pelo Inmetro e
-          mais de 20 anos de tradição.
+          Instalação, manutenção e requalificação de kit GNV por oficina homologada pelo Inmetro e mais de 20 anos de tradição.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
@@ -280,10 +279,10 @@ function PricingKits() {
         <div className="grid md:grid-cols-2 gap-8">
           <KitCard
             tag="Custo-Benefício"
-            title="Kit 5ª Geração"
+            title="KIT 3ª GERAÇÃO"
             subtitle="SGV / Salini"
-            price="R$ 3.190,00"
-            installments="10x R$ 367,00 s/ juros"
+            price="R$ 0.000,00"
+            installments="10x R$ 00,00 s/ juros"
             features={[
               "Cilindro Xm³",
               "Suporte específico",
@@ -294,8 +293,8 @@ function PricingKits() {
             tag="Alta Performance"
             title="Kit 5ª Geração"
             subtitle="Landi Renzo"
-            price="R$ 4.190,00"
-            installments="10x R$ 460,00 s/ juros"
+            price="R$ 0.000,00"
+            installments="10x R$ 00,00 s/ juros"
             features={[
               "Tecnologia Italiana",
               "Cilindro Xm³",
@@ -313,7 +312,7 @@ function Services() {
   const services = [
     {
       icon: Wrench,
-      title: "Instalação 2ª a 5ª Geração",
+      title: "INSTALAÇÃO 2ª A 5ª GERAÇÃO DE KIT GNV",
       desc: "Instalação completa de kits GNV de todas as gerações, com homologação e regularização.",
     },
     {
