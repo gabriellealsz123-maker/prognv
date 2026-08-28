@@ -30,6 +30,14 @@ import kit5Asset from "@/assets/kit-5-geracao.png.asset.json";
 
 const WHATSAPP_URL =
   "https://wa.me/554188905279?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20GNV.";
+const WHATSAPP_INFO_URL =
+  "https://wa.me/554188905279?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20GNV.";
+const WHATSAPP_INSTALACAO_URL =
+  "https://wa.me/554188905279?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20uma%20instala%C3%A7%C3%A3o%20de%20GNV.";
+const WHATSAPP_REQUALIFICACAO_URL =
+  "https://wa.me/554188905279?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20uma%20requalifica%C3%A7%C3%A3o%20de%20cilindro%20GNV.";
+const WHATSAPP_MANUTENCAO_URL =
+  "https://wa.me/554188905279?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20uma%20manuten%C3%A7%C3%A3o%20de%20GNV.";
 const TEL_FIXO_URL = "tel:+554133934019";
 const MAPS_URL =
   "https://www.google.com/maps/search/?api=1&query=Av.%20Padre%20Natal%20Pigato%2C%201932%20-%20Campo%20Largo%2C%20PR";
@@ -167,7 +175,7 @@ function Hero() {
             <ChevronRight className="h-5 w-5" />
           </a>
           <a
-            href={WHATSAPP_URL}
+            href={WHATSAPP_INFO_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md border border-zinc-500 px-8 py-3.5 text-base font-bold text-zinc-50 hover:border-zinc-300 hover:bg-zinc-900 transition-colors"
@@ -386,6 +394,58 @@ function Cylinders() {
               Fale com a gente no WhatsApp
             </span>
           </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ServiceActions() {
+  const actions = [
+    {
+      icon: Wrench,
+      title: "Instalação",
+      desc: "Instalação completa de kit GNV de 2ª a 5ª geração, com homologação e regularização.",
+      href: WHATSAPP_INSTALACAO_URL,
+    },
+    {
+      icon: Cylinder,
+      title: "Requalificação",
+      desc: "Teste hidrostático e requalificação de cilindros conforme normas do Inmetro.",
+      href: WHATSAPP_REQUALIFICACAO_URL,
+    },
+    {
+      icon: Cog,
+      title: "Manutenção",
+      desc: "Revisões, regulagem e troca de filtros para máximo desempenho e segurança.",
+      href: WHATSAPP_MANUTENCAO_URL,
+    },
+  ];
+  return (
+    <section className="bg-zinc-950 pb-14 sm:pb-20">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+          {actions.map((a) => (
+            <a
+              key={a.title}
+              href={a.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col rounded-xl border-t-4 border-t-orange-500 border border-zinc-800 bg-gradient-to-b from-zinc-800 to-zinc-900 p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:border-zinc-700 hover:shadow-[0_0_45px_-8px_rgba(255,168,50,0.35)]"
+            >
+              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-zinc-900 border border-zinc-800">
+                <a.icon className="h-6 w-6 text-orange-500" />
+              </div>
+              <h3 className="text-lg sm:text-xl font-black text-zinc-50 uppercase tracking-tight">
+                {a.title}
+              </h3>
+              <p className="mt-2 text-sm text-zinc-400 leading-relaxed">{a.desc}</p>
+              <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-orange-500 group-hover:text-orange-400 transition-colors">
+                <MessageCircle className="h-4 w-4" />
+                Falar no WhatsApp
+              </span>
+            </a>
+          ))}
         </div>
       </div>
     </section>
@@ -645,6 +705,7 @@ function Index() {
         <HighlightsBar />
         <PricingKits />
         <Cylinders />
+        <ServiceActions />
         <Services />
         <WhyGnv />
         <TrustSection />
