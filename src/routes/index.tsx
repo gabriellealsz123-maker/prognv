@@ -705,6 +705,7 @@ function Index() {
         <HighlightsBar />
         <PricingKits />
         <Cylinders />
+        <ServiceActions />
         <Services />
         <WhyGnv />
         <TrustSection />
