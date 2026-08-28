@@ -25,6 +25,8 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import kit3Asset from "@/assets/kit-3-geracao.png.asset.json";
+import kit5Asset from "@/assets/kit-5-geracao.png.asset.json";
 
 const WHATSAPP_URL =
   "https://wa.me/554188905279?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20GNV.";
@@ -61,6 +63,7 @@ function Header() {
     { label: "Serviços", href: "#servicos" },
     { label: "Kits", href: "#kits" },
     { label: "Vantagens", href: "#vantagens" },
+    { label: "Cilindros", href: "#cilindros" },
     { label: "Contato", href: "#contato" },
   ];
   return (
@@ -138,7 +141,7 @@ function Hero() {
   return (
     <section
       id="inicio"
-      className="relative overflow-hidden pt-32 pb-20"
+      className="relative overflow-hidden pt-28 pb-14 sm:pt-32 sm:pb-20"
       style={{
         backgroundImage:
           "repeating-linear-gradient(115deg, rgba(255,255,255,0.015) 0 2px, transparent 2px 6px), linear-gradient(to bottom, var(--color-zinc-900), var(--color-zinc-950))",
@@ -198,11 +201,11 @@ function HighlightsBar() {
   ];
   return (
     <div className="bg-zinc-900 border-y border-zinc-800">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
         {items.map((item) => (
           <div
             key={item.label}
-            className="flex items-center justify-center gap-2.5 text-sm font-semibold text-zinc-200"
+            className="flex items-center justify-center gap-2 text-center text-xs sm:text-sm font-semibold text-zinc-200"
           >
             <item.icon className="h-5 w-5 text-orange-500 shrink-0" />
             {item.label}
@@ -413,13 +416,13 @@ function Services() {
     },
   ];
   return (
-    <section id="servicos" className="bg-zinc-900 py-20 border-y border-zinc-800">
+    <section id="servicos" className="bg-zinc-900 py-14 sm:py-20 border-y border-zinc-800">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <p className="text-xs font-bold tracking-[0.25em] text-orange-500 uppercase mb-3">
             O que fazemos
           </p>
-          <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-zinc-50">
+          <h2 className="text-2xl sm:text-5xl font-black uppercase tracking-tight text-zinc-50">
             Serviços Especializados
           </h2>
         </div>
@@ -473,13 +476,13 @@ function WhyGnv() {
     },
   ];
   return (
-    <section id="vantagens" className="bg-zinc-950 py-20">
+    <section id="vantagens" className="bg-zinc-950 py-14 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <p className="text-xs font-bold tracking-[0.25em] text-orange-500 uppercase mb-3">
             Por que converter
           </p>
-          <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-zinc-50">
+          <h2 className="text-2xl sm:text-5xl font-black uppercase tracking-tight text-zinc-50">
             Vantagens do GNV
           </h2>
         </div>
@@ -506,9 +509,9 @@ function WhyGnv() {
 function TrustSection() {
   const steps = ["Instalação", "Inspeção", "Regularização", "Selo GNV"];
   return (
-    <section className="bg-zinc-900 py-20 border-y border-zinc-800">
+    <section className="bg-zinc-900 py-14 sm:py-20 border-y border-zinc-800">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-zinc-50">
+        <h2 className="text-2xl sm:text-5xl font-black uppercase tracking-tight text-zinc-50">
           Instalador Registrado <span className="text-orange-500">INMETRO</span>
         </h2>
         <p className="mt-4 text-zinc-400 max-w-2xl mx-auto">
@@ -621,7 +624,7 @@ function WhatsAppFloat() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Falar no WhatsApp"
-      className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-orange-500 text-zinc-950 shadow-[0_8px_30px_rgba(249,115,22,0.4)] hover:bg-orange-400 hover:scale-105 transition-all"
+      className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-orange-500 text-zinc-950 shadow-[0_8px_30px_rgba(255,168,50,0.4)] hover:bg-orange-400 hover:scale-105 transition-all"
     >
       <MessageCircle className="h-7 w-7" />
     </a>
@@ -641,6 +644,7 @@ function Index() {
         <Hero />
         <HighlightsBar />
         <PricingKits />
+        <Cylinders />
         <Services />
         <WhyGnv />
         <TrustSection />
