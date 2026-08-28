@@ -175,7 +175,7 @@ function Hero() {
             <ChevronRight className="h-5 w-5" />
           </a>
           <a
-            href={WHATSAPP_URL}
+            href={WHATSAPP_INFO_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md border border-zinc-500 px-8 py-3.5 text-base font-bold text-zinc-50 hover:border-zinc-300 hover:bg-zinc-900 transition-colors"
