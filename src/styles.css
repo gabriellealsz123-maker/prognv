@@ -20,6 +20,10 @@
 
 @theme inline {
   --font-sans: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --color-orange-300: #ffd39a;
+  --color-orange-400: #ffbb5c;
+  --color-orange-500: #ffa832;
+  --color-orange-600: #f08e10;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);

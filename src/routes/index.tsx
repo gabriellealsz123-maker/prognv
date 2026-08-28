@@ -25,6 +25,8 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import kit3Asset from "@/assets/kit-3-geracao.png.asset.json";
+import kit5Asset from "@/assets/kit-5-geracao.png.asset.json";
 
 const WHATSAPP_URL =
   "https://wa.me/554188905279?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20GNV.";
@@ -61,6 +63,7 @@ function Header() {
     { label: "Serviços", href: "#servicos" },
     { label: "Kits", href: "#kits" },
     { label: "Vantagens", href: "#vantagens" },
+    { label: "Cilindros", href: "#cilindros" },
     { label: "Contato", href: "#contato" },
   ];
   return (
@@ -138,7 +141,7 @@ function Hero() {
   return (
     <section
       id="inicio"
-      className="relative overflow-hidden pt-32 pb-20"
+      className="relative overflow-hidden pt-28 pb-14 sm:pt-32 sm:pb-20"
       style={{
         backgroundImage:
           "repeating-linear-gradient(115deg, rgba(255,255,255,0.015) 0 2px, transparent 2px 6px), linear-gradient(to bottom, var(--color-zinc-900), var(--color-zinc-950))",
@@ -149,8 +152,8 @@ function Hero() {
           <BadgeCheck className="h-4 w-4 text-orange-500" />
           Oficina homologada Inmetro
         </p>
-        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-zinc-50 leading-[1.05]">
-          PRO GNV
+        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-zinc-50 leading-[1.05]">
+          PRO <span className="text-orange-500">GNV</span>
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg text-zinc-400">
           Instalação, manutenção e requalificação de kit GNV por oficina homologada pelo Inmetro e mais de 20 anos de tradição.
@@ -198,11 +201,11 @@ function HighlightsBar() {
   ];
   return (
     <div className="bg-zinc-900 border-y border-zinc-800">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
         {items.map((item) => (
           <div
             key={item.label}
-            className="flex items-center justify-center gap-2.5 text-sm font-semibold text-zinc-200"
+            className="flex items-center justify-center gap-2 text-center text-xs sm:text-sm font-semibold text-zinc-200"
           >
             <item.icon className="h-5 w-5 text-orange-500 shrink-0" />
             {item.label}
@@ -220,6 +223,8 @@ function KitCard({
   price,
   installments,
   features,
+  image,
+  imageAlt,
 }: {
   tag: string;
   title: string;
@@ -227,66 +232,82 @@ function KitCard({
   price: string;
   installments: string;
   features: string[];
+  image: string;
+  imageAlt: string;
 }) {
   return (
-    <div className="group relative rounded-xl border-t-4 border-t-orange-500 border border-zinc-800 bg-gradient-to-b from-zinc-800 to-zinc-900 p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_45px_-8px_rgba(249,115,22,0.35)] hover:border-zinc-700">
-      <span className="inline-block rounded-full bg-orange-500/10 border border-orange-500/40 px-3 py-1 text-xs font-bold uppercase tracking-widest text-orange-500">
-        {tag}
-      </span>
-      <h3 className="mt-5 text-2xl font-black uppercase tracking-tight text-zinc-50">
-        {title}
-      </h3>
-      <p className="text-sm font-medium text-zinc-400">{subtitle}</p>
-      <div className="mt-6 border-y border-zinc-700/60 py-5">
-        <p className="text-4xl font-black text-zinc-50">{price}</p>
-        <p className="mt-1 text-sm text-zinc-400">
-          à vista ou <span className="text-orange-500 font-semibold">{installments}</span>
-        </p>
+    <div className="group relative flex flex-col overflow-hidden rounded-xl border-t-4 border-t-orange-500 border border-zinc-800 bg-gradient-to-b from-zinc-800 to-zinc-900 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_45px_-8px_rgba(255,168,50,0.35)] hover:border-zinc-700">
+      <div className="bg-zinc-100 p-3 sm:p-4">
+        <img
+          src={image}
+          alt={imageAlt}
+          loading="lazy"
+          className="mx-auto h-40 sm:h-52 w-full object-contain"
+        />
       </div>
-      <ul className="mt-6 space-y-3">
-        {features.map((f) => (
-          <li key={f} className="flex items-start gap-3 text-sm text-zinc-300">
-            <Check className="h-5 w-5 text-orange-500 shrink-0" />
-            {f}
-          </li>
-        ))}
-      </ul>
-      <a
-        href={WHATSAPP_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-8 flex items-center justify-center gap-2 rounded-md bg-orange-500 px-6 py-3 text-base font-bold text-zinc-950 hover:bg-orange-400 transition-colors"
-      >
-        <MessageCircle className="h-5 w-5" />
-        Solicitar Orçamento
-      </a>
+      <div className="flex flex-1 flex-col p-6 sm:p-8">
+        <span className="inline-block self-start rounded-full bg-orange-500/10 border border-orange-500/40 px-3 py-1 text-xs font-bold uppercase tracking-widest text-orange-500">
+          {tag}
+        </span>
+        <h3 className="mt-4 text-xl sm:text-2xl font-black uppercase tracking-tight text-zinc-50">
+          {title}
+        </h3>
+        <p className="text-sm font-medium text-zinc-400">{subtitle}</p>
+        <div className="mt-5 border-y border-zinc-700/60 py-4 sm:py-5">
+          <p className="text-3xl sm:text-4xl font-black text-zinc-50">{price}</p>
+          <p className="mt-1 text-sm text-zinc-400">
+            à vista ou <span className="text-orange-500 font-semibold">{installments}</span>
+          </p>
+        </div>
+        <ul className="mt-5 space-y-3">
+          {features.map((f) => (
+            <li key={f} className="flex items-start gap-3 text-sm text-zinc-300">
+              <Check className="h-5 w-5 text-orange-500 shrink-0" />
+              {f}
+            </li>
+          ))}
+        </ul>
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-auto pt-8 sm:pt-8"
+        >
+          <span className="flex items-center justify-center gap-2 rounded-md bg-orange-500 px-6 py-3 text-base font-bold text-zinc-950 hover:bg-orange-400 transition-colors">
+            <MessageCircle className="h-5 w-5" />
+            Solicitar Orçamento
+          </span>
+        </a>
+      </div>
     </div>
   );
 }
 
 function PricingKits() {
   return (
-    <section id="kits" className="bg-zinc-950 py-20">
+    <section id="kits" className="bg-zinc-950 py-14 sm:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-10 sm:mb-12">
           <p className="text-xs font-bold tracking-[0.25em] text-orange-500 uppercase mb-3">
-            Kits GNV 5ª Geração
+            Kits GNV
           </p>
-          <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-zinc-50">
+          <h2 className="text-2xl sm:text-5xl font-black uppercase tracking-tight text-zinc-50">
             Escolha o Kit Ideal para o seu Veículo
           </h2>
         </div>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
           <KitCard
             tag="Custo-Benefício"
             title="KIT 3ª GERAÇÃO"
             subtitle="SGV / Salini"
             price="R$ 0.000,00"
             installments="10x R$ 00,00 s/ juros"
+            image={kit3Asset.url}
+            imageAlt="Componentes do kit GNV de 3ª geração instalados no veículo"
             features={[
               "Cilindro Xm³",
               "Suporte específico",
-              "X tempo de Garantia ",
+              "X tempo de Garantia ",
             ]}
           />
           <KitCard
@@ -295,13 +316,76 @@ function PricingKits() {
             subtitle="Landi Renzo"
             price="R$ 0.000,00"
             installments="10x R$ 00,00 s/ juros"
+            image={kit5Asset.url}
+            imageAlt="Componentes do kit GNV de 5ª geração Landi Renzo Omegas EVO"
             features={[
               "Tecnologia Italiana",
               "Cilindro Xm³",
-              " x tempo Garantia Manutenção",
+              " x tempo Garantia Manutenção",
               "x tempo de Garantia Cilindro",
             ]}
           />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Cylinders() {
+  const cylinders = [
+    { size: "7,5 m³", use: "Carros compactos", note: "Menor peso e espaço" },
+    { size: "10 m³", use: "Hatch e sedãs pequenos", note: "Equilíbrio ideal" },
+    { size: "12 m³", use: "Sedãs médios", note: "Mais autonomia" },
+    { size: "15 m³", use: "Sedãs grandes e SUVs", note: "Alta autonomia" },
+    { size: "16 m³", use: "SUVs e utilitários", note: "Uso intenso" },
+    { size: "20 m³", use: "Vans e utilitários", note: "Rodagem diária" },
+    { size: "25 m³", use: "Frotas e apps", note: "Máxima autonomia" },
+  ];
+  return (
+    <section id="cilindros" className="bg-zinc-950 pb-14 sm:pb-20">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-8 sm:mb-12">
+          <p className="text-xs font-bold tracking-[0.25em] text-orange-500 uppercase mb-3">
+            Capacidades disponíveis
+          </p>
+          <h2 className="text-2xl sm:text-5xl font-black uppercase tracking-tight text-zinc-50">
+            Cilindros de 7,5 a 25 m³
+          </h2>
+          <p className="mt-3 text-sm sm:text-base text-zinc-400 max-w-2xl mx-auto">
+            Trabalhamos com cilindros homologados em diversas capacidades. A escolha
+            depende do porte do veículo e da autonomia desejada.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+          {cylinders.map((c) => (
+            <div
+              key={c.size}
+              className="rounded-xl border border-zinc-800 bg-zinc-900 p-4 sm:p-5 hover:border-orange-500/50 transition-colors"
+            >
+              <div className="flex items-center gap-2">
+                <Cylinder className="h-5 w-5 text-orange-500 shrink-0" />
+                <p className="text-xl sm:text-2xl font-black text-zinc-50">{c.size}</p>
+              </div>
+              <p className="mt-3 text-sm font-semibold text-zinc-200 leading-snug">
+                {c.use}
+              </p>
+              <p className="mt-1 text-xs text-zinc-500">{c.note}</p>
+            </div>
+          ))}
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col justify-center rounded-xl border border-orange-500/40 bg-orange-500/10 p-4 sm:p-5 hover:bg-orange-500/20 transition-colors"
+          >
+            <span className="text-sm font-bold uppercase tracking-wide text-orange-500">
+              Não sabe qual escolher?
+            </span>
+            <span className="mt-1 text-xs text-zinc-300">
+              Fale com a gente no WhatsApp
+            </span>
+          </a>
         </div>
       </div>
     </section>
@@ -332,13 +416,13 @@ function Services() {
     },
   ];
   return (
-    <section id="servicos" className="bg-zinc-900 py-20 border-y border-zinc-800">
+    <section id="servicos" className="bg-zinc-900 py-14 sm:py-20 border-y border-zinc-800">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <p className="text-xs font-bold tracking-[0.25em] text-orange-500 uppercase mb-3">
             O que fazemos
           </p>
-          <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-zinc-50">
+          <h2 className="text-2xl sm:text-5xl font-black uppercase tracking-tight text-zinc-50">
             Serviços Especializados
           </h2>
         </div>
@@ -392,13 +476,13 @@ function WhyGnv() {
     },
   ];
   return (
-    <section id="vantagens" className="bg-zinc-950 py-20">
+    <section id="vantagens" className="bg-zinc-950 py-14 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <p className="text-xs font-bold tracking-[0.25em] text-orange-500 uppercase mb-3">
             Por que converter
           </p>
-          <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-zinc-50">
+          <h2 className="text-2xl sm:text-5xl font-black uppercase tracking-tight text-zinc-50">
             Vantagens do GNV
           </h2>
         </div>
@@ -425,9 +509,9 @@ function WhyGnv() {
 function TrustSection() {
   const steps = ["Instalação", "Inspeção", "Regularização", "Selo GNV"];
   return (
-    <section className="bg-zinc-900 py-20 border-y border-zinc-800">
+    <section className="bg-zinc-900 py-14 sm:py-20 border-y border-zinc-800">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-zinc-50">
+        <h2 className="text-2xl sm:text-5xl font-black uppercase tracking-tight text-zinc-50">
           Instalador Registrado <span className="text-orange-500">INMETRO</span>
         </h2>
         <p className="mt-4 text-zinc-400 max-w-2xl mx-auto">
@@ -540,7 +624,7 @@ function WhatsAppFloat() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Falar no WhatsApp"
-      className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-orange-500 text-zinc-950 shadow-[0_8px_30px_rgba(249,115,22,0.4)] hover:bg-orange-400 hover:scale-105 transition-all"
+      className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-orange-500 text-zinc-950 shadow-[0_8px_30px_rgba(255,168,50,0.4)] hover:bg-orange-400 hover:scale-105 transition-all"
     >
       <MessageCircle className="h-7 w-7" />
     </a>
@@ -560,6 +644,7 @@ function Index() {
         <Hero />
         <HighlightsBar />
         <PricingKits />
+        <Cylinders />
         <Services />
         <WhyGnv />
         <TrustSection />
