@@ -149,8 +149,8 @@ function Hero() {
           <BadgeCheck className="h-4 w-4 text-orange-500" />
           Oficina homologada Inmetro
         </p>
-        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-zinc-50 leading-[1.05]">
-          PRO GNV
+        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-zinc-50 leading-[1.05]">
+          PRO <span className="text-orange-500">GNV</span>
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg text-zinc-400">
           Instalação, manutenção e requalificação de kit GNV por oficina homologada pelo Inmetro e mais de 20 anos de tradição.
