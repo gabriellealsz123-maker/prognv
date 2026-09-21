@@ -45,17 +45,17 @@ const MAPS_URL =
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Pro GNV — Instalação e Manutenção de GNV | Campo Largo/PR" },
+      { title: "Instalação e Manutenção de GNV | Pro GNV" },
       {
         name: "description",
         content:
-          "Oficina homologada INMETRO com mais de 20 anos de mercado. Instalação de kits GNV 2ª a 5ª geração, manutenção e requalificação de cilindros. IPVA a 1% no PR.",
+          "Especialistas em instalação, requalificação e manutenção de kit GNV. Homologado pelo Inmetro",
       },
-      { property: "og:title", content: "Pro GNV — Instalação e Manutenção de GNV" },
+      { property: "og:title", content: "Instalação e Manutenção de GNV | Pro GNV" },
       {
         property: "og:description",
         content:
-          "Economia e potência. Reduza seu IPVA para 1%. Oficina homologada INMETRO com mais de 20 anos de tradição em Campo Largo/PR.",
+          "Especialistas em instalação, requalificação e manutenção de kit GNV. Homologado pelo Inmetro",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
