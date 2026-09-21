@@ -204,7 +204,7 @@ function HighlightsBar() {
   const items = [
     { icon: Award, label: "20+ Anos de Mercado" },
     { icon: BadgeCheck, label: "Selo Inmetro" },
-    { icon: Layers, label: "2ª a 5ª Geração" },
+    { icon: Layers, label: "2ª a 6ª Geração" },
     { icon: CreditCard, label: "Parcelamento em 12x" },
   ];
   return (
@@ -405,7 +405,7 @@ function ServiceActions() {
     {
       icon: Wrench,
       title: "Instalação",
-      desc: "Instalação completa de kit GNV de 2ª a 5ª geração, com homologação e regularização.",
+      desc: "Instalação completa de kit GNV de 2ª a 6ª geração, com homologação e regularização.",
       href: WHATSAPP_INSTALACAO_URL,
     },
     {
@@ -456,7 +456,7 @@ function Services() {
   const services = [
     {
       icon: Wrench,
-      title: "INSTALAÇÃO 2ª A 5ª GERAÇÃO DE KIT GNV",
+      title: "INSTALAÇÃO 2ª A 6ª GERAÇÃO DE KIT GNV",
       desc: "Instalação completa de kits GNV de todas as gerações, com homologação e regularização.",
     },
     {
