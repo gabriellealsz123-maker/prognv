@@ -25,8 +25,6 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { useEffect, useState } from "react";
-import kit3Asset from "@/assets/kit-3-geracao.png.asset.json";
-import kit5Asset from "@/assets/kit-5-geracao.png.asset.json";
 
 const WHATSAPP_URL =
   "https://wa.me/554188905279?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20GNV.";
@@ -313,7 +311,7 @@ function PricingKits() {
             subtitle="SGV / Salini"
             price="R$ 0.000,00"
             installments="10x R$ 00,00 s/ juros"
-            image={kit3Asset.url}
+            image="/kit-3-geracao.png"
             imageAlt="Componentes do kit GNV de 3ª geração instalados no veículo"
             features={[
               "Cilindro Xm³",
@@ -327,7 +325,7 @@ function PricingKits() {
             subtitle="Landi Renzo"
             price="R$ 0.000,00"
             installments="10x R$ 00,00 s/ juros"
-            image={kit5Asset.url}
+            image="/kit-5-geracao.png"
             imageAlt="Componentes do kit GNV de 5ª geração Landi Renzo Omegas EVO"
             features={[
               "Tecnologia Italiana",
