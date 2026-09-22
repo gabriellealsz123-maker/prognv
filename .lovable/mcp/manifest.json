@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "sdk_version": "3.0.1",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "gnv-experts-landing",
+      "version": "0.1.0",
+      "title": "GNV Experts Landing"
+    },
+    "tools": [
+      {
+        "name": "get_company_info",
+        "title": "Informações da Pro GNV",
+        "description": "Retorna dados públicos da oficina Pro GNV: endereço, contatos, site e diferenciais.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_services",
+        "title": "Serviços oferecidos",
+        "description": "Lista os serviços da Pro GNV (instalação, requalificação e manutenção) com o link de WhatsApp de cada um.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_cylinders",
+        "title": "Capacidades de cilindros",
+        "description": "Lista as capacidades de cilindros de GNV disponíveis (7,5 m³ a 25 m³) e o tipo de veículo indicado para cada uma.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_quote_link",
+        "title": "Link de contato no WhatsApp",
+        "description": "Gera o link de WhatsApp da Pro GNV já com a mensagem automática do assunto escolhido (orçamento, informações, instalação, requalificação ou manutenção).",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "subject": {
+              "type": "string",
+              "enum": [
+                "orcamento",
+                "informacoes",
+                "instalacao",
+                "requalificacao",
+                "manutencao"
+              ],
+              "description": "Assunto da mensagem automática."
+            }
+          },
+          "required": [
+            "subject"
+          ],
+          "additionalProperties": false
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
