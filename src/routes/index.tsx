@@ -1,3 +1,5 @@
+import { LegalLinks } from "@/components/privacy/legal-links";
+import { Button } from "@/components/ui/button";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   Menu,
@@ -8,7 +10,6 @@ import {
   Receipt,
   Award,
   Layers,
-  CreditCard,
   Wrench,
   Cog,
   Cylinder,
@@ -87,7 +88,7 @@ function Header() {
           </span>
         </a>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-4">
           {links.map((l) => (
             <a
               key={l.href}
@@ -100,6 +101,7 @@ function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
+          <details className="relative hidden md:block"><summary className="cursor-pointer text-sm text-zinc-300">Privacidade</summary><nav aria-label="Informações legais" className="absolute right-0 top-8 w-64 rounded-md border border-border bg-background p-4"><LegalLinks /></nav></details>
           <a
             href={WHATSAPP_URL}
             target="_blank"
@@ -109,13 +111,13 @@ function Header() {
             <MessageCircle className="h-4 w-4" />
             WhatsApp
           </a>
-          <button
+          <Button variant="ghost" size="icon"
             onClick={() => setOpen(!open)}
             className="md:hidden text-zinc-300 hover:text-zinc-50"
             aria-label="Abrir menu"
           >
             {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          </Button>
         </div>
       </div>
 
@@ -131,6 +133,7 @@ function Header() {
               {l.label}
             </a>
           ))}
+          <LegalLinks onNavigate={() => setOpen(false)} />
           <a
             href={WHATSAPP_URL}
             target="_blank"
@@ -190,9 +193,6 @@ function Hero() {
             <Award className="h-4 w-4 text-orange-500" /> 20 Anos de Experiência
           </span>
           <span className="inline-flex items-center gap-2">
-            <ShieldCheck className="h-4 w-4 text-orange-500" /> Garantia de 1 Ano
-          </span>
-          <span className="inline-flex items-center gap-2">
             <Receipt className="h-4 w-4 text-orange-500" /> Nota Fiscal
           </span>
         </div>
@@ -206,7 +206,7 @@ function HighlightsBar() {
     { icon: Award, label: "20+ Anos de Mercado" },
     { icon: BadgeCheck, label: "Selo Inmetro" },
     { icon: Layers, label: "2ª a 6ª Geração" },
-    { icon: CreditCard, label: "Parcelamento em 12x" },
+    { icon: MessageCircle, label: "Solicite um orçamento" },
   ];
   return (
     <div className="bg-zinc-900 border-y border-zinc-800">
@@ -229,8 +229,6 @@ function KitCard({
   tag,
   title,
   subtitle,
-  price,
-  installments,
   features,
   image,
   imageAlt,
@@ -238,8 +236,6 @@ function KitCard({
   tag: string;
   title: string;
   subtitle: string;
-  price: string;
-  installments: string;
   features: string[];
   image: string;
   imageAlt: string;
@@ -262,12 +258,6 @@ function KitCard({
           {title}
         </h3>
         <p className="text-sm font-medium text-zinc-400">{subtitle}</p>
-        <div className="mt-5 border-y border-zinc-700/60 py-4 sm:py-5">
-          <p className="text-3xl sm:text-4xl font-black text-zinc-50">{price}</p>
-          <p className="mt-1 text-sm text-zinc-400">
-            à vista ou <span className="text-orange-500 font-semibold">{installments}</span>
-          </p>
-        </div>
         <ul className="mt-5 space-y-3">
           {features.map((f) => (
             <li key={f} className="flex items-start gap-3 text-sm text-zinc-300">
@@ -309,29 +299,20 @@ function PricingKits() {
             tag="Custo-Benefício"
             title="KIT 3ª GERAÇÃO"
             subtitle="SGV / Salini"
-            price="R$ 0.000,00"
-            installments="10x R$ 00,00 s/ juros"
             image="/kit-3-geracao.png"
             imageAlt="Componentes do kit GNV de 3ª geração instalados no veículo"
             features={[
-              "Cilindro Xm³",
               "Suporte específico",
-              "X tempo de Garantia ",
             ]}
           />
           <KitCard
             tag="Alta Performance"
             title="Kit 5ª Geração"
             subtitle="Landi Renzo"
-            price="R$ 0.000,00"
-            installments="10x R$ 00,00 s/ juros"
             image="/kit-5-geracao.png"
             imageAlt="Componentes do kit GNV de 5ª geração Landi Renzo Omegas EVO"
             features={[
               "Tecnologia Italiana",
-              "Cilindro Xm³",
-              " x tempo Garantia Manutenção",
-              "x tempo de Garantia Cilindro",
             ]}
           />
         </div>
@@ -670,6 +651,7 @@ function Footer() {
             </ul>
           </div>
         </div>
+        <nav aria-label="Informações legais" className="mt-8"><LegalLinks /></nav>
         <div className="mt-12 border-t border-zinc-900 pt-6 text-center text-xs text-zinc-600">
           © 2026 Pro GNV. Todos os direitos reservados.
         </div>
