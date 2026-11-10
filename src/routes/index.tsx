@@ -153,11 +153,7 @@ function Hero() {
   return (
     <section
       id="inicio"
-      className="relative overflow-hidden pt-28 pb-14 sm:pt-32 sm:pb-20"
-      style={{
-        backgroundImage:
-          "repeating-linear-gradient(115deg, rgba(255,255,255,0.015) 0 2px, transparent 2px 6px), linear-gradient(to bottom, var(--color-zinc-900), var(--color-zinc-950))",
-      }}
+      className="pro-hero relative overflow-hidden pt-28 pb-14 sm:pt-32 sm:pb-20"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
         <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-zinc-700 bg-zinc-900/80 px-4 py-1.5 text-xs font-semibold tracking-widest text-zinc-300 uppercase">
