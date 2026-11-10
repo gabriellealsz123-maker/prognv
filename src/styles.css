@@ -160,3 +160,20 @@
 @font-face { font-family: "Archivo"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/archivo-700.ttf") format("truetype"); }
 @font-face { font-family: "Archivo"; font-style: normal; font-weight: 800; font-display: swap; src: url("/fonts/archivo-800.ttf") format("truetype"); }
 @font-face { font-family: "Archivo"; font-style: normal; font-weight: 900; font-display: swap; src: url("/fonts/archivo-900.ttf") format("truetype"); }
+
+/* A imagem provisória pode ser trocada por uma foto da oficina neste caminho. */
+.pro-hero {
+  background: linear-gradient(90deg, rgba(5,5,7,.9), rgba(5,5,7,.65) 48%, rgba(5,5,7,.46)), linear-gradient(0deg, #09090b, transparent 48%), url('/hero-oficina.png') center 55% / cover no-repeat;
+  min-height: 590px;
+  display: flex;
+  align-items: center;
+}
+.pro-hero > div { width: 100%; }
+.pro-hero h1 { text-shadow: 0 5px 32px rgba(0,0,0,.8); }
+.pro-hero p { text-shadow: 0 2px 12px rgba(0,0,0,.9); }
+#servicos, #vantagens, #kits, #cilindros { position: relative; }
+#servicos { background-image: radial-gradient(ellipse at 90% 10%, rgba(249,115,22,.08), transparent 42%); }
+#kits { background-image: radial-gradient(ellipse at 10% 20%, rgba(249,115,22,.07), transparent 40%); }
+@media (max-width: 640px) {
+  .pro-hero { min-height: 600px; background-position: center, center, 65% center; }
+}
