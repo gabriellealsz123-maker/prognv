@@ -284,3 +284,27 @@
 @media (min-width: 640px) {
   .pg #cilindros .grid.bg-pg-line, .pg #servicos .grid.bg-pg-line { gap: 16px; }
 }
+
+/* Editorial polish: whole words, tighter rhythm, consistent kit media. */
+.pg .pg-h2, .pg h3 { hyphens: none; overflow-wrap: normal; word-break: normal; }
+.pg .pg-h2 { font-size: clamp(1.75rem, 1.1rem + 2.3vw, 3rem); line-height: 1.06; }
+.pg #servicos .pg-h2 { font-size: clamp(1.5rem, 6vw, 2.5rem); }
+.pg main > section:not(.pro-hero) { padding-bottom: clamp(48px, 5vw, 72px); }
+.pg main > section[class~="py-16"] { padding-top: clamp(48px, 5vw, 72px); }
+.pg main [class~="sm:mb-14"] { margin-bottom: 32px; }
+.pg #kits .group > div:first-child { height: clamp(200px, 22vw, 280px); aspect-ratio: auto; padding: 20px; }
+.pg #kits .group > div:first-child img { object-fit: contain; transform: none; }
+.pg #kits .group > div:last-child { padding: 24px; }
+.pg .grid:has(> a .pg-arrow) > a { min-height: 248px; }
+.pg .grid:has(> a .pg-arrow) h3 { margin-top: 24px; }
+@media (max-width: 767px) {
+  .pg .grid:has(> a .pg-arrow) h3 { font-size: clamp(1.25rem, 6vw, 1.75rem); }
+}
+@media (min-width: 768px) {
+  .pg .pro-hero { min-height: min(740px, 100svh); }
+  .pg #kits .group > div:first-child { padding: 24px; }
+}
+@media (min-width: 1024px) {
+  .pg #servicos .pg-h2 { font-size: clamp(1.75rem, 3.1vw, 2.75rem); }
+  .pg .pg-photo { aspect-ratio: auto; height: 260px; }
+}
