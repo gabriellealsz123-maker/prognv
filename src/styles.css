@@ -254,3 +254,13 @@
   .pg main ol li { padding-right: 8px; }
   .pg main ol li p { font-size: 11px; letter-spacing: 0.03em; line-height: 1.5; }
 }
+
+/* Keep the technical catalog balanced at tablet widths. */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .pg .grid:has(> a .pg-arrow) > a { padding: 24px; }
+  .pg .grid:has(> a .pg-arrow) h3 { font-size: clamp(1.125rem, 2vw, 1.5rem); hyphens: manual; }
+  .pg .grid:has(> a .pg-arrow) > a > span { font-size: 11px; letter-spacing: 0.025em; }
+}
+@media (min-width: 640px) and (max-width: 1023px) {
+  .pg #cilindros .grid.bg-pg-line { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
