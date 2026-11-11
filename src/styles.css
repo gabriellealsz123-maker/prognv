@@ -245,3 +245,12 @@
 @media (prefers-reduced-motion: reduce) {
   .pg .pg-btn:active { transform: none; }
 }
+
+/* Long Portuguese headings stay readable on narrow screens. */
+.pg .pg-h2, .pg h3 { overflow-wrap: anywhere; hyphens: auto; }
+.pg main ol li { min-width: 0; }
+.pg main ol li p { overflow-wrap: anywhere; }
+@media (max-width: 400px) {
+  .pg main ol li { padding-right: 8px; }
+  .pg main ol li p { font-size: 11px; letter-spacing: 0.03em; line-height: 1.5; }
+}
