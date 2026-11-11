@@ -238,3 +238,10 @@
       url('/hero-oficina.png') 72% center / cover no-repeat;
   }
 }
+
+/* Explicit on-accent contrast and tactile button feedback. */
+.pg .pg-h2.text-pg-on { color: var(--pg-on-accent); }
+.pg-btn:active { transform: scale(0.98); }
+@media (prefers-reduced-motion: reduce) {
+  .pg .pg-btn:active { transform: none; }
+}
