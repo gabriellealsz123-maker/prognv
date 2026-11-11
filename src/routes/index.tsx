@@ -77,43 +77,43 @@ function Header() {
     { label: "Contato", href: "#contato" },
   ];
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800/60">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <a href="#inicio" className="leading-tight">
-          <span className="text-xl font-black tracking-tight text-zinc-50 uppercase">
-            Pro <span className="text-orange-500">GNV</span>
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-pg-line bg-pg-ink/90 backdrop-blur-md">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 px-4 sm:h-[72px] sm:px-6 lg:px-8">
+        <a href="#inicio" className="pg-focus shrink-0 rounded-[2px] leading-none">
+          <span className="text-xl font-black uppercase tracking-tight text-zinc-50 sm:text-[22px]">
+            Pro <span className="text-pg">GNV</span>
           </span>
-          <span className="block text-[10px] font-semibold tracking-[0.2em] text-zinc-400 uppercase">
+          <span className="mt-1 block text-[10px] font-semibold uppercase tracking-[0.22em] text-zinc-400">
             Homologada Inmetro
           </span>
         </a>
 
-        <nav className="hidden md:flex items-center gap-4">
+        <nav className="hidden min-w-0 items-center gap-1 xl:flex">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-zinc-300 hover:text-orange-500 transition-colors"
+              className="pg-focus rounded-[2px] px-3 py-2 text-[13px] font-semibold uppercase tracking-[0.08em] text-zinc-300 transition-colors hover:text-zinc-50"
             >
               {l.label}
             </a>
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
-          <details className="relative hidden md:block"><summary className="cursor-pointer text-sm text-zinc-300">Privacidade</summary><nav aria-label="Informações legais" className="absolute right-0 top-8 w-64 rounded-md border border-border bg-background p-4"><LegalLinks /></nav></details>
+        <div className="flex shrink-0 items-center gap-2 sm:gap-4">
+          <details className="relative hidden xl:block"><summary className="pg-focus cursor-pointer rounded-[2px] px-2 py-2 text-[13px] font-semibold uppercase tracking-[0.08em] text-zinc-400 transition-colors hover:text-zinc-50">Privacidade</summary><nav aria-label="Informações legais" className="absolute right-0 top-11 w-64 rounded-[4px] border border-pg-line bg-pg-ink p-4"><LegalLinks /></nav></details>
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-2 rounded-md bg-orange-500 px-4 py-2 text-sm font-bold text-zinc-950 hover:bg-orange-400 transition-colors"
+            className="pg-focus pg-btn hidden h-10 items-center gap-2 rounded-[4px] bg-pg px-4 text-[13px] font-extrabold uppercase tracking-[0.06em] text-pg-on hover:bg-pg-hover sm:inline-flex"
           >
             <MessageCircle className="h-4 w-4" />
             WhatsApp
           </a>
           <Button variant="ghost" size="icon"
             onClick={() => setOpen(!open)}
-            className="md:hidden text-zinc-300 hover:text-zinc-50"
+            className="pg-focus rounded-[4px] text-zinc-300 hover:bg-zinc-900 hover:text-zinc-50 xl:hidden"
             aria-label="Abrir menu"
           >
             {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -122,23 +122,23 @@ function Header() {
       </div>
 
       {open && (
-        <nav className="md:hidden border-t border-zinc-800/60 bg-zinc-950 px-4 py-4 flex flex-col gap-3">
+        <nav className="flex max-h-[calc(100dvh-4rem)] flex-col gap-1 overflow-y-auto border-t border-pg-line bg-pg-ink px-4 py-4 sm:px-6 xl:hidden">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="text-sm font-medium text-zinc-300 hover:text-orange-500"
+              className="pg-focus rounded-[2px] border-b border-pg-line py-3 text-sm font-bold uppercase tracking-[0.08em] text-zinc-200 hover:text-pg"
             >
               {l.label}
             </a>
           ))}
-          <LegalLinks onNavigate={() => setOpen(false)} />
+          <div className="py-3"><LegalLinks onNavigate={() => setOpen(false)} /></div>
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-md bg-orange-500 px-4 py-2 text-sm font-bold text-zinc-950"
+            className="pg-focus inline-flex h-12 items-center justify-center gap-2 rounded-[4px] bg-pg px-4 text-sm font-extrabold uppercase tracking-[0.06em] text-pg-on"
           >
             <MessageCircle className="h-4 w-4" />
             WhatsApp
@@ -153,23 +153,24 @@ function Hero() {
   return (
     <section
       id="inicio"
-      className="pro-hero relative overflow-hidden pt-28 pb-14 sm:pt-32 sm:pb-20"
+      className="pro-hero relative overflow-hidden pt-32 pb-16 sm:pt-36 sm:pb-24"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-        <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-zinc-700 bg-zinc-900/80 px-4 py-1.5 text-xs font-semibold tracking-widest text-zinc-300 uppercase">
-          <BadgeCheck className="h-4 w-4 text-orange-500" />
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[640px]">
+        <p className="mb-6 inline-flex items-center gap-2 rounded-[2px] border-l-2 border-pg bg-pg-ink/70 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-300">
+          <BadgeCheck className="h-4 w-4 text-pg" />
           Oficina homologada Inmetro
         </p>
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-zinc-50 leading-[1.05]">
-          PRO <span className="text-orange-500">GNV</span>
+        <h1 className="pg-display text-zinc-50">
+          PRO <span className="text-pg">GNV</span>
         </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg text-zinc-400">
+        <p className="mt-6 max-w-xl text-base leading-relaxed text-zinc-300 sm:text-lg">
           Instalação, manutenção e requalificação de kit GNV por oficina homologada pelo Inmetro e mais de 20 anos de tradição.
         </p>
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <a
             href="#kits"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md bg-orange-500 px-8 py-3.5 text-base font-bold text-zinc-950 hover:bg-orange-400 transition-colors"
+            className="pg-focus pg-btn inline-flex h-14 w-full items-center justify-center gap-2 rounded-[4px] bg-pg px-7 text-[15px] font-extrabold uppercase tracking-[0.06em] text-pg-on hover:bg-pg-hover sm:w-auto"
           >
             Ver Opções de Kits
             <ChevronRight className="h-5 w-5" />
@@ -178,19 +179,20 @@ function Hero() {
             href={WHATSAPP_INFO_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md border border-zinc-500 px-8 py-3.5 text-base font-bold text-zinc-50 hover:border-zinc-300 hover:bg-zinc-900 transition-colors"
+            className="pg-focus pg-btn inline-flex h-14 w-full items-center justify-center gap-2 rounded-[4px] border border-zinc-500 bg-pg-ink/40 px-7 text-[15px] font-extrabold uppercase tracking-[0.06em] text-zinc-50 hover:border-zinc-50 hover:bg-pg-ink/80 sm:w-auto"
           >
             <MessageCircle className="h-5 w-5" />
             Falar com Especialista
           </a>
         </div>
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-zinc-400">
+        <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-zinc-50/15 pt-6 text-sm font-semibold text-zinc-300">
           <span className="inline-flex items-center gap-2">
-            <Award className="h-4 w-4 text-orange-500" /> 20 Anos de Experiência
+            <Award className="h-4 w-4 text-pg" /> 20 Anos de Experiência
           </span>
           <span className="inline-flex items-center gap-2">
-            <Receipt className="h-4 w-4 text-orange-500" /> Nota Fiscal
+            <Receipt className="h-4 w-4 text-pg" /> Nota Fiscal
           </span>
+        </div>
         </div>
       </div>
     </section>
@@ -205,14 +207,14 @@ function HighlightsBar() {
     { icon: MessageCircle, label: "Solicite um orçamento" },
   ];
   return (
-    <div className="bg-zinc-900 border-y border-zinc-800">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
-        {items.map((item) => (
+    <div className="border-y border-pg-line bg-pg-surface">
+      <div className="mx-auto grid max-w-7xl grid-cols-2 px-4 sm:px-6 md:grid-cols-4 lg:px-8">
+        {items.map((item, i) => (
           <div
             key={item.label}
-            className="flex items-center justify-center gap-2 text-center text-xs sm:text-sm font-semibold text-zinc-200"
+            className={`flex min-w-0 items-center gap-3 px-2 py-5 text-[13px] font-bold uppercase tracking-[0.06em] text-zinc-100 sm:px-5 sm:text-sm ${i % 2 === 1 ? "border-l border-pg-line" : ""} ${i > 1 ? "border-t border-pg-line md:border-t-0" : ""} ${i === 2 ? "md:border-l" : ""} ${i === 0 ? "md:pl-0" : ""}`}
           >
-            <item.icon className="h-5 w-5 text-orange-500 shrink-0" />
+            <item.icon className="h-5 w-5 text-pg shrink-0" />
             {item.label}
           </div>
         ))}
@@ -237,27 +239,27 @@ function KitCard({
   imageAlt: string;
 }) {
   return (
-    <div className="group relative flex flex-col overflow-hidden rounded-xl border-t-4 border-t-orange-500 border border-zinc-800 bg-gradient-to-b from-zinc-800 to-zinc-900 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_45px_-8px_rgba(255,168,50,0.35)] hover:border-zinc-700">
-      <div className="bg-zinc-100 p-3 sm:p-4">
+    <div className="group flex flex-col overflow-hidden rounded-[4px] border border-pg-line bg-pg-surface transition-colors duration-200 hover:border-zinc-600">
+      <div className="aspect-[16/10] bg-zinc-100 p-4 sm:p-6">
         <img
           src={image}
           alt={imageAlt}
           loading="lazy"
-          className="mx-auto h-40 sm:h-52 w-full object-contain"
+          className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-[1.02]"
         />
       </div>
-      <div className="flex flex-1 flex-col p-6 sm:p-8">
-        <span className="inline-block self-start rounded-full bg-orange-500/10 border border-orange-500/40 px-3 py-1 text-xs font-bold uppercase tracking-widest text-orange-500">
+      <div className="flex flex-1 flex-col border-t border-pg-line p-6 sm:p-8">
+        <span className="inline-block self-start text-[11px] font-bold uppercase tracking-[0.2em] text-pg">
           {tag}
         </span>
-        <h3 className="mt-4 text-xl sm:text-2xl font-black uppercase tracking-tight text-zinc-50">
+        <h3 className="mt-3 text-2xl font-black uppercase leading-none tracking-tight text-zinc-50 sm:text-[28px]">
           {title}
         </h3>
-        <p className="text-sm font-medium text-zinc-400">{subtitle}</p>
-        <ul className="mt-5 space-y-3">
+        <p className="mt-2 text-sm font-semibold text-zinc-400">{subtitle}</p>
+        <ul className="mt-6 space-y-3 border-t border-pg-line pt-5">
           {features.map((f) => (
             <li key={f} className="flex items-start gap-3 text-sm text-zinc-300">
-              <Check className="h-5 w-5 text-orange-500 shrink-0" />
+              <Check className="h-5 w-5 text-pg shrink-0" />
               {f}
             </li>
           ))}
@@ -266,9 +268,9 @@ function KitCard({
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-auto pt-8 sm:pt-8"
+          className="pg-focus mt-auto block rounded-[4px] pt-8"
         >
-          <span className="flex items-center justify-center gap-2 rounded-md bg-orange-500 px-6 py-3 text-base font-bold text-zinc-950 hover:bg-orange-400 transition-colors">
+          <span className="pg-btn flex h-12 items-center justify-center gap-2 rounded-[4px] bg-pg px-6 text-sm font-extrabold uppercase tracking-[0.06em] text-pg-on hover:bg-pg-hover">
             <MessageCircle className="h-5 w-5" />
             Solicitar Orçamento
           </span>
@@ -280,17 +282,17 @@ function KitCard({
 
 function PricingKits() {
   return (
-    <section id="kits" className="bg-zinc-950 py-14 sm:py-20">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 sm:mb-12">
-          <p className="text-xs font-bold tracking-[0.25em] text-orange-500 uppercase mb-3">
+    <section id="kits" className="bg-pg-ink py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-10 max-w-3xl sm:mb-14">
+          <p className="pg-eyebrow mb-4">
             Kits GNV
           </p>
-          <h2 className="text-2xl sm:text-5xl font-black uppercase tracking-tight text-zinc-50">
+          <h2 className="pg-h2">
             Escolha o Kit Ideal para o seu Veículo
           </h2>
         </div>
-        <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
+        <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
           <KitCard
             tag="Custo-Benefício"
             title="KIT 3ª GERAÇÃO"
@@ -328,32 +330,34 @@ function Cylinders() {
     { size: "25 m³", use: "Frotas e apps", note: "Máxima autonomia" },
   ];
   return (
-    <section id="cilindros" className="bg-zinc-950 pb-14 sm:pb-20">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8 sm:mb-12">
-          <p className="text-xs font-bold tracking-[0.25em] text-orange-500 uppercase mb-3">
+    <section id="cilindros" className="bg-pg-ink pb-16 sm:pb-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-10 grid gap-4 sm:mb-14 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-end lg:gap-12">
+          <div>
+          <p className="pg-eyebrow mb-4">
             Capacidades disponíveis
           </p>
-          <h2 className="text-2xl sm:text-5xl font-black uppercase tracking-tight text-zinc-50">
+          <h2 className="pg-h2">
             Cilindros de 7,5 a 25 m³
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-zinc-400 max-w-2xl mx-auto">
+          </div>
+          <p className="max-w-xl text-sm leading-relaxed text-zinc-400 sm:text-base">
             Trabalhamos com cilindros homologados em diversas capacidades. A escolha
             depende do porte do veículo e da autonomia desejada.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+        <div className="grid grid-cols-2 gap-px overflow-hidden rounded-[4px] border border-pg-line bg-pg-line sm:grid-cols-3 lg:grid-cols-4">
           {cylinders.map((c) => (
             <div
               key={c.size}
-              className="rounded-xl border border-zinc-800 bg-zinc-900 p-4 sm:p-5 hover:border-orange-500/50 transition-colors"
+              className="min-w-0 bg-pg-surface p-4 transition-colors duration-200 hover:bg-zinc-900 sm:p-6"
             >
-              <div className="flex items-center gap-2">
-                <Cylinder className="h-5 w-5 text-orange-500 shrink-0" />
-                <p className="text-xl sm:text-2xl font-black text-zinc-50">{c.size}</p>
+              <div className="flex items-center gap-2 text-zinc-500">
+                <Cylinder className="h-4 w-4 text-pg shrink-0" />
               </div>
-              <p className="mt-3 text-sm font-semibold text-zinc-200 leading-snug">
+              <p className="mt-4 text-[28px] font-black leading-none tracking-tight text-zinc-50 sm:text-4xl">{c.size}</p>
+              <p className="mt-4 border-t border-pg-line pt-3 text-sm font-semibold leading-snug text-zinc-200">
                 {c.use}
               </p>
               <p className="mt-1 text-xs text-zinc-500">{c.note}</p>
@@ -363,12 +367,13 @@ function Cylinders() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col justify-center rounded-xl border border-orange-500/40 bg-orange-500/10 p-4 sm:p-5 hover:bg-orange-500/20 transition-colors"
+            className="pg-focus group flex min-w-0 flex-col justify-end bg-pg p-4 text-pg-on transition-colors duration-200 hover:bg-pg-hover sm:p-6"
           >
-            <span className="text-sm font-bold uppercase tracking-wide text-orange-500">
+            <MessageCircle className="mb-auto h-5 w-5" />
+            <span className="mt-6 text-base font-black uppercase leading-tight tracking-tight sm:text-lg">
               Não sabe qual escolher?
             </span>
-            <span className="mt-1 text-xs text-zinc-300">
+            <span className="mt-1 text-xs font-semibold">
               Fale com a gente no WhatsApp
             </span>
           </a>
@@ -400,27 +405,28 @@ function ServiceActions() {
     },
   ];
   return (
-    <section className="bg-zinc-950 pb-14 sm:pb-20">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+    <section className="bg-pg-ink pb-16 sm:pb-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
           {actions.map((a) => (
             <a
               key={a.title}
               href={a.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex flex-col rounded-xl border-t-4 border-t-orange-500 border border-zinc-800 bg-gradient-to-b from-zinc-800 to-zinc-900 p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:border-zinc-700 hover:shadow-[0_0_45px_-8px_rgba(255,168,50,0.35)]"
+              className="pg-focus group flex min-h-[280px] flex-col rounded-[4px] border border-pg-line bg-pg-surface p-6 transition-colors duration-200 hover:border-zinc-600 sm:p-8"
             >
-              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-zinc-900 border border-zinc-800">
-                <a.icon className="h-6 w-6 text-orange-500" />
-              </div>
-              <h3 className="text-lg sm:text-xl font-black text-zinc-50 uppercase tracking-tight">
+              <a.icon className="h-7 w-7 text-pg" />
+              <h3 className="mt-8 text-[28px] font-black uppercase leading-none tracking-tight text-zinc-50 sm:text-3xl">
                 {a.title}
               </h3>
-              <p className="mt-2 text-sm text-zinc-400 leading-relaxed">{a.desc}</p>
-              <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-orange-500 group-hover:text-orange-400 transition-colors">
+              <p className="mt-3 text-sm leading-relaxed text-zinc-400 sm:text-[15px]">{a.desc}</p>
+              <span className="mt-auto flex items-center justify-between gap-2 border-t border-pg-line pt-5 text-sm font-extrabold uppercase tracking-[0.06em] text-pg transition-colors group-hover:text-pg-hover">
+                <span className="inline-flex items-center gap-2">
                 <MessageCircle className="h-4 w-4" />
                 Falar no WhatsApp
+                </span>
+                <ChevronRight className="pg-arrow h-4 w-4" />
               </span>
             </a>
           ))}
@@ -454,29 +460,28 @@ function Services() {
     },
   ];
   return (
-    <section id="servicos" className="bg-zinc-900 py-14 sm:py-20 border-y border-zinc-800">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <p className="text-xs font-bold tracking-[0.25em] text-orange-500 uppercase mb-3">
+    <section id="servicos" className="border-y border-pg-line bg-pg-surface py-16 sm:py-24">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16 lg:px-8">
+        <div className="lg:sticky lg:top-28 lg:self-start">
+          <p className="pg-eyebrow mb-4">
             O que fazemos
           </p>
-          <h2 className="text-2xl sm:text-5xl font-black uppercase tracking-tight text-zinc-50">
+          <h2 className="pg-h2">
             Serviços Especializados
           </h2>
+          <div aria-hidden className="pg-photo mt-8 hidden aspect-[4/3] rounded-[4px] border border-pg-line lg:block" />
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid gap-px overflow-hidden rounded-[4px] border border-pg-line bg-pg-line sm:grid-cols-2">
           {services.map((s) => (
             <div
               key={s.title}
-              className="rounded-xl border border-zinc-800 bg-zinc-950 p-7 hover:border-orange-500/50 transition-colors"
+              className="min-w-0 bg-pg-ink p-6 transition-colors duration-200 hover:bg-zinc-900 sm:p-8"
             >
-              <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-zinc-900 border border-zinc-800">
-                <s.icon className="h-6 w-6 text-orange-500" />
-              </div>
-              <h3 className="text-lg font-bold text-zinc-50 uppercase tracking-tight">
+              <s.icon className="h-6 w-6 text-pg" />
+              <h3 className="mt-6 text-lg font-black uppercase leading-tight tracking-tight text-zinc-50 [overflow-wrap:anywhere]">
                 {s.title}
               </h3>
-              <p className="mt-2 text-sm text-zinc-400 leading-relaxed">{s.desc}</p>
+              <p className="mt-3 text-sm leading-relaxed text-zinc-400">{s.desc}</p>
             </div>
           ))}
         </div>
@@ -513,31 +518,39 @@ function WhyGnv() {
       desc: "Combustão mais limpa, com menos emissão de poluentes.",
     },
   ];
+  const [lead, ...others] = topics as [(typeof topics)[number], ...typeof topics];
   return (
-    <section id="vantagens" className="bg-zinc-950 py-14 sm:py-20">
+    <section id="vantagens" className="bg-pg-ink py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <p className="text-xs font-bold tracking-[0.25em] text-orange-500 uppercase mb-3">
+        <div className="mb-10 max-w-3xl sm:mb-14">
+          <p className="pg-eyebrow mb-4">
             Por que converter
           </p>
-          <h2 className="text-2xl sm:text-5xl font-black uppercase tracking-tight text-zinc-50">
+          <h2 className="pg-h2">
             Vantagens do GNV
           </h2>
         </div>
-        <div className="grid md:grid-cols-2 gap-x-12 gap-y-8 max-w-5xl mx-auto">
-          {topics.map((t) => (
-            <div key={t.title} className="flex gap-4">
-              <div className="shrink-0 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-zinc-900 border border-zinc-800">
-                <t.icon className="h-5 w-5 text-orange-500" />
-              </div>
-              <div>
-                <h3 className="text-base font-bold text-zinc-50 uppercase tracking-tight">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
+          <div className="border-l-2 border-pg pl-6 sm:pl-8">
+            <lead.icon className="h-7 w-7 text-pg" />
+            <h3 className="mt-6 text-[44px] font-black uppercase leading-[0.95] tracking-tight text-zinc-50 sm:text-6xl">
+              {lead.title}
+            </h3>
+            <p className="mt-5 max-w-md text-base leading-relaxed text-zinc-300 sm:text-lg">{lead.desc}</p>
+          </div>
+          <div className="grid gap-x-10 sm:grid-cols-2">
+          {others.map((t) => (
+            <div key={t.title} className="flex gap-4 border-t border-pg-line py-6">
+              <t.icon className="mt-0.5 h-5 w-5 shrink-0 text-pg" />
+              <div className="min-w-0">
+                <h3 className="text-base font-black uppercase tracking-tight text-zinc-50">
                   {t.title}
                 </h3>
-                <p className="mt-1 text-sm text-zinc-400 leading-relaxed">{t.desc}</p>
+                <p className="mt-2 text-sm leading-relaxed text-zinc-400">{t.desc}</p>
               </div>
             </div>
           ))}
+          </div>
         </div>
       </div>
     </section>
@@ -547,30 +560,32 @@ function WhyGnv() {
 function TrustSection() {
   const steps = ["Instalação", "Inspeção", "Regularização", "Selo GNV"];
   return (
-    <section className="bg-zinc-900 py-14 sm:py-20 border-y border-zinc-800">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-2xl sm:text-5xl font-black uppercase tracking-tight text-zinc-50">
-          Instalador Registrado <span className="text-orange-500">INMETRO</span>
+    <section className="bg-pg py-16 text-pg-on sm:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-end lg:gap-12">
+        <h2 className="pg-h2 text-pg-on">
+          Instalador Registrado <span className="underline decoration-4 underline-offset-[6px]">INMETRO</span>
         </h2>
-        <p className="mt-4 text-zinc-400 max-w-2xl mx-auto">
+        <p className="max-w-xl text-base font-medium leading-relaxed">
           Todo o processo é feito dentro da lei: da instalação à documentação,
           você sai com o selo GNV e o veículo regularizado.
         </p>
-        <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-y-10">
+        </div>
+        <ol className="mt-12 grid grid-cols-2 gap-y-10 sm:mt-16 md:grid-cols-4">
           {steps.map((step, i) => (
-            <div key={step} className="relative flex flex-col items-center">
+            <li key={step} className="relative pr-4">
               {i < steps.length - 1 && (
-                <div className="hidden md:block absolute top-7 left-1/2 w-full h-px bg-zinc-700" />
+                <div className="absolute top-6 left-12 right-0 hidden h-px bg-pg-on/60 md:block" />
               )}
-              <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full border-2 border-orange-500 bg-zinc-950 text-lg font-black text-orange-500">
+              <div className="relative flex h-12 w-12 items-center justify-center rounded-[4px] border-2 border-pg-on text-base font-black tabular-nums">
                 {String(i + 1).padStart(2, "0")}
               </div>
-              <p className="mt-4 text-sm font-bold uppercase tracking-wide text-zinc-200">
+              <p className="mt-4 text-sm font-black uppercase tracking-[0.08em]">
                 {step}
               </p>
-            </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );
@@ -578,31 +593,31 @@ function TrustSection() {
 
 function Footer() {
   return (
-    <footer id="contato" className="bg-black py-14">
+    <footer id="contato" className="border-t border-pg-line bg-black pt-16 pb-24 sm:pb-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-3 gap-10">
+        <div className="grid gap-10 md:grid-cols-[minmax(0,5fr)_minmax(0,3fr)_minmax(0,4fr)] md:gap-12">
           <div>
-            <span className="text-2xl font-black tracking-tight text-zinc-50 uppercase">
-              Pro <span className="text-orange-500">GNV</span>
+            <span className="text-3xl font-black tracking-tight text-zinc-50 uppercase">
+              Pro <span className="text-pg">GNV</span>
             </span>
             <p className="mt-2 text-xs font-semibold tracking-[0.2em] text-zinc-500 uppercase">
               Homologada Inmetro
             </p>
-            <p className="mt-4 text-sm text-zinc-400 leading-relaxed">
+            <p className="mt-5 max-w-sm text-sm text-zinc-400 leading-relaxed">
               Mais de 20 anos de tradição em instalação e manutenção de GNV.
             </p>
           </div>
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-widest text-zinc-50 mb-4">
+            <h3 className="mb-4 border-b border-pg-line pb-3 text-xs font-bold uppercase tracking-[0.2em] text-zinc-50">
               Endereço
             </h3>
             <a
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-start gap-2 text-sm text-zinc-400 hover:text-orange-500 transition-colors"
+              className="pg-focus flex items-start gap-3 rounded-[2px] text-sm leading-relaxed text-zinc-300 hover:text-pg transition-colors"
             >
-              <MapPin className="h-4 w-4 text-orange-500 shrink-0 mt-0.5" />
+              <MapPin className="h-4 w-4 text-pg shrink-0 mt-0.5" />
               <span>
                 Av. Padre Natal Pigato, 1932
                 <br />
@@ -611,44 +626,44 @@ function Footer() {
             </a>
           </div>
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-widest text-zinc-50 mb-4">
+            <h3 className="mb-4 border-b border-pg-line pb-3 text-xs font-bold uppercase tracking-[0.2em] text-zinc-50">
               Contato
             </h3>
-            <ul className="space-y-2.5 text-sm text-zinc-400">
+            <ul className="space-y-3 text-sm text-zinc-300">
               <li>
                 <a
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 hover:text-orange-500 transition-colors"
+                  className="pg-focus flex items-center gap-3 rounded-[2px] hover:text-pg transition-colors"
                 >
-                  <MessageCircle className="h-4 w-4 text-orange-500" />
+                  <MessageCircle className="h-4 w-4 shrink-0 text-pg" />
                   WhatsApp (41) 8890-5279
                 </a>
               </li>
               <li>
                 <a
                   href={TEL_FIXO_URL}
-                  className="flex items-center gap-2 hover:text-orange-500 transition-colors"
+                  className="pg-focus flex items-center gap-3 rounded-[2px] hover:text-pg transition-colors"
                 >
-                  <Phone className="h-4 w-4 text-orange-500" />
+                  <Phone className="h-4 w-4 shrink-0 text-pg" />
                   Fixo (41) 3393-4019
                 </a>
               </li>
               <li>
                 <a
                   href="mailto:contatoprognv@hotmail.com"
-                  className="flex items-center gap-2 hover:text-orange-500 transition-colors"
+                  className="pg-focus flex items-center gap-3 rounded-[2px] [overflow-wrap:anywhere] hover:text-pg transition-colors"
                 >
-                  <Mail className="h-4 w-4 text-orange-500" />
+                  <Mail className="h-4 w-4 shrink-0 text-pg" />
                   contatoprognv@hotmail.com
                 </a>
               </li>
             </ul>
           </div>
         </div>
-        <nav aria-label="Informações legais" className="mt-8"><LegalLinks /></nav>
-        <div className="mt-12 border-t border-zinc-900 pt-6 text-center text-xs text-zinc-600">
+        <nav aria-label="Informações legais" className="mt-12 border-t border-pg-line pt-6"><LegalLinks /></nav>
+        <div className="mt-6 text-xs text-zinc-500">
           © 2026 Pro GNV. Todos os direitos reservados.
         </div>
       </div>
@@ -663,7 +678,7 @@ function WhatsAppFloat() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Falar no WhatsApp"
-      className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-orange-500 text-zinc-950 shadow-[0_8px_30px_rgba(255,168,50,0.4)] hover:bg-orange-400 hover:scale-105 transition-all"
+      className="pg-focus pg-btn fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-[6px] bg-pg text-pg-on shadow-[0_10px_30px_-8px_rgb(0_0_0/0.7)] hover:bg-pg-hover sm:bottom-6 sm:right-6"
     >
       <MessageCircle className="h-7 w-7" />
     </a>
@@ -677,7 +692,7 @@ function Index() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-zinc-950 font-sans antialiased">
+    <div className="pg min-h-screen overflow-x-clip bg-pg-ink font-sans antialiased">
       <Header />
       <main>
         <Hero />
