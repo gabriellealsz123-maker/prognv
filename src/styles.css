@@ -264,3 +264,23 @@
 @media (min-width: 640px) and (max-width: 1023px) {
   .pg #cilindros .grid.bg-pg-line { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
+/* Softer automotive surfaces; scoped to the landing page. */
+.pg { --pg-radius-card: 20px; --pg-radius-tile: 16px; --pg-radius-control: 12px; }
+.pg [class~="rounded-[2px]"] { border-radius: 6px; }
+.pg [class~="rounded-[4px]"], .pg .pg-btn { border-radius: var(--pg-radius-control); }
+.pg main .group.bg-pg-surface, .pg .pg-photo { border-radius: var(--pg-radius-card); }
+.pg header details nav { border-radius: var(--pg-radius-tile); }
+.pg .pro-hero p.inline-flex { border-radius: 10px; }
+/* Individual tiles replace the rigid connected tables. */
+.pg #cilindros .grid.bg-pg-line, .pg #servicos .grid.bg-pg-line {
+  gap: 12px; border: 0; border-radius: 0; background: transparent; overflow: visible;
+}
+.pg #cilindros .grid.bg-pg-line > *, .pg #servicos .grid.bg-pg-line > * {
+  border: 1px solid var(--pg-line); border-radius: var(--pg-radius-tile);
+}
+.pg main ol li > div.relative { border-radius: 50%; }
+.pg > a.fixed.pg-btn { border-radius: 50%; }
+@media (min-width: 640px) {
+  .pg #cilindros .grid.bg-pg-line, .pg #servicos .grid.bg-pg-line { gap: 16px; }
+}
