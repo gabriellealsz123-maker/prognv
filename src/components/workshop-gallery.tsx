@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
 
@@ -92,11 +91,11 @@ export function WorkshopGallery() {
   }, [api]);
 
   return (
-    <section id="galeria" className="scroll-mt-[72px] border-t border-pg-line bg-pg-surface py-16">
+    <section
+      id="galeria"
+      className="pg-light scroll-mt-[72px] border-t border-pg-line bg-pg-surface py-16"
+    >
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <h2 id="galeria-titulo" className="pg-h2 mb-6 sm:mb-8">
-          Fotos da oficina
-        </h2>
         <Carousel
           aria-labelledby="galeria-titulo"
           aria-roledescription="carrossel"
@@ -106,32 +105,62 @@ export function WorkshopGallery() {
           }}
           setApi={setApi}
         >
-          <CarouselContent className="workshop-gallery-track ml-0">
-            {workshopPhotos.map(({ file, alt }, index) => (
-              <CarouselItem
-                key={file}
-                aria-hidden={active !== index}
-                aria-label={`${index + 1} de ${workshopPhotos.length}`}
-                aria-roledescription="foto"
-                className="pl-0"
+          <div className="gallery-heading">
+            <h2 id="galeria-titulo" className="pg-h2">
+              Fotos da oficina
+            </h2>
+          </div>
+          <div className="gallery-viewer">
+            <CarouselContent id="fotos-oficina-imagens" className="workshop-gallery-track ml-0">
+              {workshopPhotos.map(({ file, alt }, index) => (
+                <CarouselItem
+                  key={file}
+                  aria-hidden={active !== index}
+                  aria-label={`${index + 1} de ${workshopPhotos.length}`}
+                  aria-roledescription="foto"
+                  className="pl-0"
+                >
+                  <div className="workshop-gallery-frame">
+                    <img
+                      src={`/oficina/${file}.jpg`}
+                      srcSet={
+                        file === "02-painel-comutador" || file === "04-peca-reparo"
+                          ? undefined
+                          : `/oficina/${file}-640.jpg 640w, /oficina/${file}.jpg 1152w`
+                      }
+                      sizes="(max-width: 639px) calc(100vw - 32px), (max-width: 1023px) calc(100vw - 48px), 960px"
+                      alt={alt}
+                      draggable={false}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="gallery-controls">
+              <button
+                type="button"
+                className="pg-focus"
+                aria-label="Foto anterior"
+                aria-controls="fotos-oficina-imagens"
+                disabled={!api}
+                onClick={() => api?.scrollPrev()}
               >
-                <div className="workshop-gallery-frame">
-                  <img
-                    src={`/oficina/${file}.jpg`}
-                    srcSet={
-                      file === "02-painel-comutador" || file === "04-peca-reparo"
-                        ? undefined
-                        : `/oficina/${file}-640.jpg 640w, /oficina/${file}.jpg 1152w`
-                    }
-                    sizes="(max-width: 639px) calc(100vw - 32px), (max-width: 1023px) calc(100vw - 48px), 960px"
-                    alt={alt}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
+                <ArrowLeft size={20} aria-hidden="true" />
+              </button>
+              <button
+                type="button"
+                className="pg-focus"
+                aria-label="Próxima foto"
+                aria-controls="fotos-oficina-imagens"
+                disabled={!api}
+                onClick={() => api?.scrollNext()}
+              >
+                <ArrowRight size={20} aria-hidden="true" />
+              </button>
+            </div>
+          </div>
           <div className="mt-4 flex items-center justify-between gap-4">
             <p
               aria-live="polite"
@@ -143,18 +172,32 @@ export function WorkshopGallery() {
               </span>
               {workshopPhotos[active].caption}
             </p>
-            <div className="flex shrink-0 gap-2">
-              <CarouselPrevious
-                aria-label="Foto anterior"
-                className="pg-focus static size-11 translate-y-0 rounded-[12px] border-pg-line bg-pg-ink text-zinc-100 hover:border-pg hover:bg-pg-ink hover:text-pg"
-              />
-              <CarouselNext
-                aria-label="Próxima foto"
-                className="pg-focus static size-11 translate-y-0 rounded-[12px] border-pg-line bg-pg-ink text-zinc-100 hover:border-pg hover:bg-pg-ink hover:text-pg"
-              />
-            </div>
           </div>
         </Carousel>
+        <div className="gallery-thumbnails" role="group" aria-label="Escolher uma foto da oficina">
+          {workshopPhotos.map(({ file, caption }, index) => (
+            <button
+              key={file}
+              type="button"
+              className="pg-focus"
+              aria-label={`Ver foto ${index + 1}: ${caption}`}
+              aria-pressed={active === index}
+              aria-controls="fotos-oficina-imagens"
+              title={caption}
+              disabled={!api}
+              onClick={() => api?.scrollTo(index)}
+            >
+              <img
+                src={`/oficina/${file}${file === "02-painel-comutador" || file === "04-peca-reparo" ? "" : "-640"}.jpg`}
+                alt=""
+                width={96}
+                height={64}
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          ))}
+        </div>
       </div>
     </section>
   );

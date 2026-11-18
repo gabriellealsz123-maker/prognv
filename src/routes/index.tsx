@@ -1,6 +1,7 @@
 import { LegalLinks } from "@/components/privacy/legal-links";
 import { Button } from "@/components/ui/button";
 import { WorkshopGallery } from "@/components/workshop-gallery";
+import "@/prognv-preview.css";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   Menu,
@@ -71,15 +72,21 @@ function Header() {
   const [open, setOpen] = useState(false);
   const links = [
     { label: "Início", href: "#inicio" },
+    { label: "Fotos", href: "#galeria" },
     { label: "Serviços", href: "#servicos" },
     { label: "Kits", href: "#kits" },
     { label: "Vantagens", href: "#vantagens" },
     { label: "Cilindros", href: "#cilindros" },
-    { label: "Fotos", href: "#galeria" },
     { label: "Contato", href: "#contato" },
   ];
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-pg-line bg-pg-ink/90 backdrop-blur-md">
+    <header className="site-header fixed top-0 left-0 right-0 z-50 border-b border-pg-line bg-pg-ink/90 backdrop-blur-md">
+      <div className="header-contact">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 sm:px-6 lg:px-8">
+          <a href={MAPS_URL} target="_blank" rel="noopener noreferrer"><MapPin size={14} />Av. Padre Natal Pigato, 1932 · Campo Largo/PR</a>
+          <a href={TEL_FIXO_URL}><Phone size={14} />(41) 3393-4019</a>
+        </div>
+      </div>
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 px-4 sm:h-[72px] sm:px-6 lg:px-8">
         <a href="#inicio" className="pg-focus shrink-0 rounded-[2px] leading-none">
           <span className="text-xl font-black uppercase tracking-tight text-zinc-50 sm:text-[22px]">
@@ -178,12 +185,10 @@ function Hero() {
         </div>
         <div className="pro-hero-photo">
           <img
-            src="/oficina/07-fachada.jpg"
-            srcSet="/oficina/07-fachada-640.jpg 640w, /oficina/07-fachada.jpg 1152w"
-            sizes="(min-width: 1280px) 624px, (min-width: 900px) 50vw, (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)"
-            alt="Fachada da oficina Pro GNV com três veículos estacionados"
-            width={1152}
-            height={864}
+            src="/visual/hero-civic.jpg"
+            alt="Honda Civic lilás com rodas escuras, visto de frente e de lado"
+            width={1672}
+            height={941}
             fetchPriority="high"
           />
         </div>
@@ -206,6 +211,9 @@ function Hero() {
               Falar com Especialista
             </a>
           </div>
+          <a href="#galeria" className="hero-gallery-link pg-focus">
+            Ver fotos da oficina <ChevronRight aria-hidden="true" className="h-4 w-4" />
+          </a>
           <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-3 border-t border-zinc-50/15 pt-5 text-[13px] font-semibold text-zinc-300 sm:gap-x-6 sm:text-sm">
             <span className="inline-flex items-center gap-2">
               <Award className="h-4 w-4 text-pg" /> 20 Anos de Experiência
@@ -303,7 +311,7 @@ function KitCard({
 
 function PricingKits() {
   return (
-    <section id="kits" className="bg-pg-ink py-16 sm:py-24">
+    <section id="kits" className="pg-light bg-pg-ink py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 max-w-3xl sm:mb-14">
           <p className="pg-eyebrow mb-4">
@@ -351,7 +359,7 @@ function Cylinders() {
     { size: "25 m³", use: "Frotas e apps", note: "Máxima autonomia" },
   ];
   return (
-    <section id="cilindros" className="bg-pg-ink pb-16 sm:pb-24">
+    <section id="cilindros" className="pg-light bg-pg-ink pb-16 sm:pb-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 grid gap-4 sm:mb-14 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-end lg:gap-12">
           <div>
@@ -426,7 +434,7 @@ function ServiceActions() {
     },
   ];
   return (
-    <section className="bg-pg-ink pb-16 sm:pb-24">
+    <section className="service-actions bg-pg-ink pb-16 sm:pb-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
           {actions.map((a) => (
@@ -541,7 +549,7 @@ function WhyGnv() {
   ];
   const [lead, ...others] = topics as [(typeof topics)[number], ...typeof topics];
   return (
-    <section id="vantagens" className="bg-pg-ink py-16 sm:py-24">
+    <section id="vantagens" className="pg-light bg-pg-ink py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 max-w-3xl sm:mb-14">
           <p className="pg-eyebrow mb-4">
@@ -561,7 +569,7 @@ function WhyGnv() {
           </div>
           <div className="grid gap-x-10 sm:grid-cols-2">
           {others.map((t) => (
-            <div key={t.title} className="flex gap-4 border-t border-pg-line py-6">
+            <div key={t.title} className={`flex gap-4 border-t border-pg-line py-6 ${t.title === "Instalação sob o veículo" ? "underbody-feature sm:col-span-2" : ""}`}>
               <t.icon className="mt-0.5 h-5 w-5 shrink-0 text-pg" />
               <div className="min-w-0">
                 <h3 className="text-base font-black uppercase tracking-tight text-zinc-50">
@@ -710,21 +718,31 @@ function WhatsAppFloat() {
 function Index() {
   useEffect(() => {
     document.documentElement.classList.add("dark");
-    document.documentElement.style.scrollBehavior = "smooth";
+    const sections = document.querySelectorAll(".pg main > section:not(.pro-hero) > div");
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("section-entered");
+          observer.unobserve(entry.target);
+        }
+      }
+    }, { threshold: 0.08 });
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <div className="pg min-h-screen overflow-x-clip bg-pg-ink font-sans antialiased">
+    <div className="pg pg-preview min-h-screen overflow-x-clip bg-pg-ink font-sans antialiased">
       <Header />
       <main>
         <Hero />
         <HighlightsBar />
+        <WorkshopGallery />
         <PricingKits />
         <Cylinders />
         <ServiceActions />
         <Services />
         <WhyGnv />
-        <WorkshopGallery />
         <TrustSection />
       </main>
       <Footer />
