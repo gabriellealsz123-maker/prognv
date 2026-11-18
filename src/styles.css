@@ -210,7 +210,7 @@
 .group:hover .pg-arrow { transform: translateX(3px); }
 .pg-focus:focus-visible, .pg summary:focus-visible { outline: 2px solid var(--pg-accent); outline-offset: 3px; }
 .pg .bg-pg .pg-focus:focus-visible, .pg a.bg-pg:focus-visible { outline-color: var(--color-zinc-50); }
-.pg-photo { background: linear-gradient(0deg, rgb(10 10 11 / .55), transparent 60%), url('/hero-oficina.png') 70% center / cover no-repeat; }
+.pg-photo { background: linear-gradient(0deg, rgb(10 10 11 / .55), transparent 60%), none 70% center / cover no-repeat; }
 @media (prefers-reduced-motion: reduce) {
   html:has(.pg) { scroll-behavior: auto !important; }
   .pg *, .pg *::before, .pg *::after { transition: none !important; transform: none !important; }
@@ -221,7 +221,7 @@
   background:
     linear-gradient(90deg, rgba(10,10,11,.97) 0%, rgba(10,10,11,.88) 34%, rgba(10,10,11,.35) 62%, rgba(10,10,11,.1) 100%),
     linear-gradient(0deg, #0a0a0b 0%, transparent 30%),
-    url('/hero-oficina.png') 80% 55% / cover no-repeat;
+    none 80% 55% / cover no-repeat;
   min-height: min(860px, 100svh);
   display: flex;
   align-items: center;
@@ -235,7 +235,7 @@
     min-height: 640px;
     background:
       linear-gradient(180deg, rgba(10,10,11,.55) 0%, rgba(10,10,11,.8) 45%, rgba(10,10,11,.96) 100%),
-      url('/hero-oficina.png') 72% center / cover no-repeat;
+      none 72% center / cover no-repeat;
   }
 }
 
@@ -311,4 +311,22 @@
 
 @media (min-width: 768px) and (max-width: 1199px) {
   .pg .grid:has(> a .pg-arrow) h3 { font-size: clamp(1rem, 1.75vw, 1.25rem); }
+}
+
+/* Fotografias reais: arquivos locais, tratamento tradicional e placas ocultadas. */
+.pg .pro-hero { isolation: isolate; background: var(--pg-ink); }
+.pg .pro-hero-photo { position: absolute; inset: 0; z-index: -2; }
+.pg .pro-hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.pg .pro-hero::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(90deg, rgb(10 10 11 / .94), rgb(10 10 11 / .82) 38%, rgb(10 10 11 / .22)), linear-gradient(0deg, var(--pg-ink), transparent 30%);
+}
+.pg .workshop-photo { overflow: hidden; border: 1px solid var(--pg-line); border-radius: var(--pg-radius-card); background: var(--pg-surface); }
+.pg .workshop-photo img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+.pg #kits .workshop-photo, .pg #cilindros .workshop-photo { max-width: 850px; }
+.pg #cilindros .workshop-photo img { max-height: 380px; }
+.pg .workshop-photo-service img { aspect-ratio: 4 / 3; }
+@media (max-width: 767px) {
+  .pg .pro-hero-photo img { object-position: 60% center; }
+  .pg .pro-hero::before { background: linear-gradient(0deg, var(--pg-ink), rgb(10 10 11 / .84) 30%, rgb(10 10 11 / .72) 75%, rgb(10 10 11 / .4)); }
 }

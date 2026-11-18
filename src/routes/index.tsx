@@ -149,12 +149,24 @@ function Header() {
   );
 }
 
+function WorkshopPhoto({ name, alt, className = "" }: { name: string; alt: string; className?: string }) {
+  return (
+    <div className={`workshop-photo ${className}`}>
+      <img src={`/oficina/${name}.jpg`} srcSet={`/oficina/${name}-640.jpg 640w, /oficina/${name}.jpg 1152w`} sizes="(max-width: 767px) calc(100vw - 32px), (max-width: 1023px) 90vw, 850px" alt={alt} width={1152} height={648} loading="lazy" decoding="async" />
+    </div>
+  );
+}
+
 function Hero() {
   return (
     <section
       id="inicio"
       className="pro-hero relative overflow-hidden pt-32 pb-16 sm:pt-36 sm:pb-24"
     >
+      <picture className="pro-hero-photo" aria-hidden="true">
+        <source media="(max-width: 767px)" srcSet="/oficina/hero-fachada-celular.jpg" />
+        <img src="/oficina/hero-fachada-desktop.jpg" alt="" width={1280} height={720} fetchPriority="high" />
+      </picture>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-[640px]">
         <p className="mb-6 inline-flex items-center gap-2 rounded-[2px] border-l-2 border-pg bg-pg-ink/70 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-300">
@@ -314,6 +326,7 @@ function PricingKits() {
             ]}
           />
         </div>
+        <WorkshopPhoto name="01-instalacao-porta-malas" alt="Cilindro de GNV no porta-malas de um veículo na oficina Pro GNV" className="mt-10" />
       </div>
     </section>
   );
@@ -347,6 +360,7 @@ function Cylinders() {
           </p>
         </div>
 
+        <WorkshopPhoto name="10-cilindros-embalados" alt="Cilindros amarelos embalados no interior da oficina" className="mb-8" />
         <div className="grid grid-cols-2 gap-px overflow-hidden rounded-[4px] border border-pg-line bg-pg-line sm:grid-cols-3 lg:grid-cols-4">
           {cylinders.map((c) => (
             <div
@@ -469,7 +483,7 @@ function Services() {
           <h2 className="pg-h2">
             Serviços Especializados
           </h2>
-          <div aria-hidden className="pg-photo mt-8 hidden aspect-[4/3] rounded-[4px] border border-pg-line lg:block" />
+          <WorkshopPhoto name="03-motor-instalacao" alt="Motor e componentes de GNV de um veículo na oficina" className="mt-8 workshop-photo-service" />
         </div>
         <div className="grid gap-px overflow-hidden rounded-[4px] border border-pg-line bg-pg-line sm:grid-cols-2">
           {services.map((s) => (
@@ -547,6 +561,7 @@ function WhyGnv() {
                   {t.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-zinc-400">{t.desc}</p>
+                {t.title === "Instalação sob o veículo" && <WorkshopPhoto name="09-instalacao-inferior" alt="Cilindros de GNV e suportes vistos sob o veículo" className="mt-5" />}
               </div>
             </div>
           ))}
