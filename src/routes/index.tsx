@@ -1,5 +1,6 @@
 import { LegalLinks } from "@/components/privacy/legal-links";
 import { Button } from "@/components/ui/button";
+import { WorkshopGallery } from "@/components/workshop-gallery";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   Menu,
@@ -74,6 +75,7 @@ function Header() {
     { label: "Kits", href: "#kits" },
     { label: "Vantagens", href: "#vantagens" },
     { label: "Cilindros", href: "#cilindros" },
+    { label: "Fotos", href: "#galeria" },
     { label: "Contato", href: "#contato" },
   ];
   return (
@@ -159,52 +161,59 @@ function WorkshopPhoto({ name, alt, className = "" }: { name: string; alt: strin
 
 function Hero() {
   return (
-    <section
-      id="inicio"
-      className="pro-hero relative overflow-hidden pt-32 pb-16 sm:pt-36 sm:pb-24"
-    >
-      <picture className="pro-hero-photo" aria-hidden="true">
-        <source media="(max-width: 767px)" srcSet="/oficina/hero-fachada-celular.jpg" />
-        <img src="/oficina/hero-fachada-desktop.jpg" alt="" width={1280} height={720} fetchPriority="high" />
-      </picture>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="max-w-[640px]">
-        <p className="mb-6 inline-flex items-center gap-2 rounded-[2px] border-l-2 border-pg bg-pg-ink/70 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-300">
-          <BadgeCheck className="h-4 w-4 text-pg" />
-          Oficina homologada Inmetro
-        </p>
-        <h1 className="pg-display text-zinc-50">
-          PRO <span className="text-pg">GNV</span>
-        </h1>
-        <p className="mt-6 max-w-xl text-base leading-relaxed text-zinc-300 sm:text-lg">
-          Instalação, manutenção e requalificação de kit GNV por oficina homologada pelo Inmetro e mais de 20 anos de tradição.
-        </p>
-        <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <a
-            href="#kits"
-            className="pg-focus pg-btn inline-flex h-14 w-full items-center justify-center gap-2 rounded-[4px] bg-pg px-7 text-[15px] font-extrabold uppercase tracking-[0.06em] text-pg-on hover:bg-pg-hover sm:w-auto"
-          >
-            Ver Opções de Kits
-            <ChevronRight className="h-5 w-5" />
-          </a>
-          <a
-            href={WHATSAPP_INFO_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="pg-focus pg-btn inline-flex h-14 w-full items-center justify-center gap-2 rounded-[4px] border border-zinc-500 bg-pg-ink/40 px-7 text-[15px] font-extrabold uppercase tracking-[0.06em] text-zinc-50 hover:border-zinc-50 hover:bg-pg-ink/80 sm:w-auto"
-          >
-            <MessageCircle className="h-5 w-5" />
-            Falar com Especialista
-          </a>
+    <section id="inicio" className="pro-hero">
+      <div className="pro-hero-inner mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="pro-hero-intro">
+          <p className="mb-5 inline-flex items-center gap-2 rounded-[2px] border-l-2 border-pg bg-pg-surface px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.16em] text-zinc-300">
+            <BadgeCheck className="h-4 w-4 text-pg" />
+            Oficina homologada Inmetro
+          </p>
+          <h1 className="pg-display text-zinc-50">
+            PRO <span className="text-pg">GNV</span>
+          </h1>
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-zinc-300 sm:text-lg">
+            Instalação, manutenção e requalificação de kit GNV por oficina
+            homologada pelo Inmetro e mais de 20 anos de tradição.
+          </p>
         </div>
-        <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-zinc-50/15 pt-6 text-sm font-semibold text-zinc-300">
-          <span className="inline-flex items-center gap-2">
-            <Award className="h-4 w-4 text-pg" /> 20 Anos de Experiência
-          </span>
-          <span className="inline-flex items-center gap-2">
-            <Receipt className="h-4 w-4 text-pg" /> Nota Fiscal
-          </span>
+        <div className="pro-hero-photo">
+          <img
+            src="/oficina/07-fachada.jpg"
+            srcSet="/oficina/07-fachada-640.jpg 640w, /oficina/07-fachada.jpg 1152w"
+            sizes="(min-width: 1280px) 624px, (min-width: 900px) 50vw, (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)"
+            alt="Fachada da oficina Pro GNV com três veículos estacionados"
+            width={1152}
+            height={864}
+            fetchPriority="high"
+          />
         </div>
+        <div className="pro-hero-actions">
+          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <a
+              href="#kits"
+              className="pg-focus pg-btn inline-flex h-14 w-full items-center justify-center gap-2 rounded-[4px] bg-pg px-7 text-[15px] font-extrabold uppercase tracking-[0.06em] text-pg-on hover:bg-pg-hover sm:w-auto"
+            >
+              Ver Opções de Kits
+              <ChevronRight className="h-5 w-5" />
+            </a>
+            <a
+              href={WHATSAPP_INFO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pg-focus pg-btn inline-flex h-14 w-full items-center justify-center gap-2 rounded-[4px] border border-zinc-500 bg-pg-ink/40 px-7 text-[15px] font-extrabold uppercase tracking-[0.06em] text-zinc-50 hover:border-zinc-50 hover:bg-pg-ink/80 sm:w-auto"
+            >
+              <MessageCircle className="h-5 w-5" />
+              Falar com Especialista
+            </a>
+          </div>
+          <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-3 border-t border-zinc-50/15 pt-5 text-[13px] font-semibold text-zinc-300 sm:gap-x-6 sm:text-sm">
+            <span className="inline-flex items-center gap-2">
+              <Award className="h-4 w-4 text-pg" /> 20 Anos de Experiência
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <Receipt className="h-4 w-4 text-pg" /> Nota Fiscal
+            </span>
+          </div>
         </div>
       </div>
     </section>
@@ -326,7 +335,6 @@ function PricingKits() {
             ]}
           />
         </div>
-        <WorkshopPhoto name="01-instalacao-porta-malas" alt="Cilindro de GNV no porta-malas de um veículo na oficina Pro GNV" className="mt-10" />
       </div>
     </section>
   );
@@ -360,7 +368,6 @@ function Cylinders() {
           </p>
         </div>
 
-        <WorkshopPhoto name="10-cilindros-embalados" alt="Cilindros amarelos embalados no interior da oficina" className="mb-8" />
         <div className="grid grid-cols-2 gap-px overflow-hidden rounded-[4px] border border-pg-line bg-pg-line sm:grid-cols-3 lg:grid-cols-4">
           {cylinders.map((c) => (
             <div
@@ -483,7 +490,7 @@ function Services() {
           <h2 className="pg-h2">
             Serviços Especializados
           </h2>
-          <WorkshopPhoto name="03-motor-instalacao" alt="Motor e componentes de GNV de um veículo na oficina" className="mt-8 workshop-photo-service" />
+          <WorkshopPhoto name="03-motor-instalacao" alt="Motor e componentes de GNV de um veículo na oficina" className="mt-8" />
         </div>
         <div className="grid gap-px overflow-hidden rounded-[4px] border border-pg-line bg-pg-line sm:grid-cols-2">
           {services.map((s) => (
@@ -717,6 +724,7 @@ function Index() {
         <ServiceActions />
         <Services />
         <WhyGnv />
+        <WorkshopGallery />
         <TrustSection />
       </main>
       <Footer />
