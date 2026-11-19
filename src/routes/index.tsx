@@ -41,7 +41,7 @@ const WHATSAPP_MANUTENCAO_URL =
   "https://wa.me/554188905279?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20uma%20manuten%C3%A7%C3%A3o%20de%20GNV.";
 const TEL_FIXO_URL = "tel:+554133934019";
 const MAPS_URL =
-  "https://www.google.com/maps/search/?api=1&query=Av.%20Padre%20Natal%20Pigato%2C%201932%20-%20Campo%20Largo%2C%20PR";
+  "https://www.google.com/maps/dir/?api=1&destination=Pro%20GNV%2C%20Av.%20Padre%20Natal%20Pigato%2C%201932%2C%20Campo%20Largo%20PR&destination_place_id=ChIJw7L3GzUY3ZQR5rGhdRlODrU&travelmode=driving&dir_action=navigate";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -184,13 +184,21 @@ function Hero() {
           </p>
         </div>
         <div className="pro-hero-photo">
-          <img
-            src="/visual/hero-picape.jpg"
-            alt="Picape Ford vermelha diante de um painel laranja e preto"
-            width={1672}
-            height={941}
-            fetchPriority="high"
-          />
+          <picture>
+            <source
+              media="(max-width: 767px)"
+              srcSet="/visual/hero-fachada-celular.jpg"
+              width={1280}
+              height={1600}
+            />
+            <img
+              src="/visual/hero-fachada-nova.jpg"
+              alt="Fachada da Pro GNV com três veículos estacionados em frente à oficina"
+              width={1672}
+              height={941}
+              fetchPriority="high"
+            />
+          </picture>
         </div>
         <div className="pro-hero-actions">
           <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
@@ -625,6 +633,37 @@ function Footer() {
   return (
     <footer id="contato" className="border-t border-pg-line bg-black pt-16 pb-24 sm:pb-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <a
+          href={MAPS_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="location-card pg-focus"
+          aria-label="Abrir rota para a Pro GNV no Google Maps, em nova aba"
+        >
+          <div className="location-card-info">
+            <MapPin className="h-7 w-7 text-pg" aria-hidden="true" />
+            <h2 className="pg-h2">Como chegar</h2>
+            <p className="text-base leading-relaxed text-zinc-300">
+              Av. Padre Natal Pigato, 1932<br />
+              Campo Largo/PR
+            </p>
+            <span className="location-card-action">
+              Traçar rota no Google Maps
+              <ChevronRight size={20} aria-hidden="true" />
+            </span>
+          </div>
+          <div className="location-card-map">
+            <img
+              src="/visual/mapa-oficina.jpg"
+              alt="Mapa com o marcador da Pro GNV na Avenida Padre Natal Pigato, próximo à BR-277"
+              width={1280}
+              height={630}
+              loading="lazy"
+              decoding="async"
+            />
+            <span className="location-card-attribution">Google Maps · Dados do mapa ©2026 Google</span>
+          </div>
+        </a>
         <div className="grid gap-10 md:grid-cols-[minmax(0,5fr)_minmax(0,3fr)_minmax(0,4fr)] md:gap-12">
           <div>
             <span className="text-3xl font-black tracking-tight text-zinc-50 uppercase">
