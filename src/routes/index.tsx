@@ -185,8 +185,8 @@ function Hero() {
         </div>
         <div className="pro-hero-photo">
           <img
-            src="/visual/hero-civic.jpg"
-            alt="Honda Civic lilás com rodas escuras, visto de frente e de lado"
+            src="/visual/hero-picape.jpg"
+            alt="Picape Ford vermelha diante de um painel laranja e preto"
             width={1672}
             height={941}
             fetchPriority="high"
